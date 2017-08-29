@@ -18,29 +18,6 @@ frappe.query_reports["Selling VAT"] = {
 			"default": get_today()
 		},
 		{
-			"fieldname":"account",
-			"label": __("Account"),
-			"fieldtype": "Link",
-			"options": "Account",
-			"get_query": function() {
-				var company = frappe.query_report.filters_by_name.company.get_value();
-				return {
-					"query": "erpnext.controllers.queries.get_account_list", 
-					"filters": {
-						"report_type": "Balance Sheet",
-						"company": company,
-						"master_type": "Customer"
-					}
-				}
-			}
-		},
-		{
-			"fieldname":"letter_head",
-			"label": "Letter Head",
-			"fieldtype": "Link",
-			"options": "Letter Head"
-		},
-		{
 			"fieldname":"company",
 			"label": "Company",
 			"fieldtype": "Link",

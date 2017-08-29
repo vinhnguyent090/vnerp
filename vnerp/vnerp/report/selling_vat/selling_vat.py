@@ -15,9 +15,9 @@ def execute(filters=None):
 	
 def get_columns():
 	return [
-		 "Sale Type::150",
-		"Net Total:Currency:100", "Net Total Before Sales Tax:Currency:100", "Sales Tax %age:Percent:50",
-		"Total Sales Tax Amount:Currency:100", "Grand Total:Currency:100"
+		"VAT Type::150",
+		"Net Total:Currency:150", "Tax %:Percent:50",
+		"Total Sales Tax Amount:Currency:150"
 	]
 
 def get_invoices(filters):
@@ -33,14 +33,16 @@ def get_invoices(filters):
 	GROUP BY si.customer, si.taxes_and_charges
 	ORDER BY si.customer""" % conditions
 
-	query = """SELECT si.taxes_and_charges, sum(si.net_total),
-	sum(si_tax.total), si_tax.rate, sum(si_tax.tax_amount), 
-	sum(si.grand_total)
+	query = """SELECT si.taxes_and_charges,
+	sum(si.net_total),si_tax.rate, sum(si_tax.tax_amount)
+
 	FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
 	WHERE si.docstatus = 1 AND si_tax.parent = si.name 
 	 %s
 	GROUP BY si.taxes_and_charges
-	ORDER BY si.taxes_and_charges""" % conditions
+	ORDER BY si_tax.rate
+
+	""" % conditions
 	
 	
 	#frappe.msgprint (query)
@@ -55,10 +57,6 @@ def get_invoices(filters):
 	# 	for j in range(0,len(tin)):
 	# 		if si[i][2]==tin[j][0]:
 	# 			si[i][2]= tin[j][2]
-
- 	for i in range(0, len(si)):	
-	#	si[i][3] = si[i][3]-si[i][5]
-		si[i][2] = si[i][2]-si[i][4]
 	
 	return si
 	
@@ -72,11 +70,4 @@ def get_conditions(filters):
 	if filters.get("to_date"):
 		conditions += " and si.posting_date <= '%s'" % filters["to_date"]
 	
-	if filters.get("account"):
-		conditions += " and si.debit_to = '%s'" % filters["account"]
-
-	if filters.get("letter_head"):
-		conditions += " and si.letter_head = '%s'" % filters["letter_head"]
-
-
 	return conditions	

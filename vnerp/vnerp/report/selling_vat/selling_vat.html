@@ -2,61 +2,128 @@
 	if (report.columns.length > 8) {
 		frappe.throw(__("Too many columns. Export the report and print it using a spreadsheet application."));
 	}
+	var col1 = report.columns[1].field;
+	var col2 = report.columns[2].field;
+	var col3 = report.columns[3].field;
+	var col4 = report.columns[4].field;
+
+	var num29 = !is_null(data[0][col2]) ? data[0][col2] : 0;
+	var num30 = !is_null(data[1][col2]) ? data[1][col2] : 0;
+	var num32 = !is_null(data[2][col2]) ? data[2][col2] : 0;
+	var num27 = num29+num30+num32;
+
+	var num31 = !is_null(data[1][col4]) ? data[1][col4] : 0;
+	var num33 = !is_null(data[2][col4]) ? data[2][col4] : 0;
+	var num28 = num31+num33;
+
 %}
 
 <style>
-	.financial-statements-important td {
-		font-weight: bold;
+	h1, .h1, h2, .h2, h3, .h3{ margin: 0}
+	hr { margin: 10px auto}
+	.print-format{
+		padding: 0.3in;
+		line-height: 1.7;
 	}
+</style>
+<div class="text-center">
+		<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3>
+		<div><strong>Độc lập - Tự do - Hạnh phúc</strong></div>
+		<hr style="width: 30%;">
+		<h2>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG</h2>
+		<small><em>(Dành cho người nộp thuế khai thuế giá trị gia tăng theo phương pháp khấu trừ)</em></small>
+		<div><strong>[01] Kỳ tính thuế: Quý ___ năm _____ </strong></div>
+		<div>[02] Lần đầu ____ [03] Bổ sung lần thứ _____ </div>
 
-	.financial-statements-blank-row td {
-		height: 37px;
-	}
-</style> vinh
-{% var letterhead= filters.letter_head || (frappe.get_doc(":Company", filters.company) && frappe.get_doc(":Company", filters.company).default_letter_head) || frappe.defaults.get_default("letter_head"); %}
-{% if(letterhead) { %} 
-<div style="margin-bottom: 7px;" class="text-center">
-	{%= frappe.boot.letter_heads[letterhead].header %}
 </div>
-{% } %}
-<h2 class="text-center">{%= __(report.report_name) %}</h2>
-<h3 class="text-center">{%= filters.company %}</h3>
-<h3 class="text-center">{%= filters.fiscal_year %}</h3>
-<h5 class="text-center">{%=  __("Currency") %} : {%= erpnext.get_currency(filters.company) %} </h4>
-{% if (filters.from_date) { %}
-	<h4 class="text-center">{%= dateutil.str_to_user(filters.from_date) %} - {%= dateutil.str_to_user(filters.to_date) %}</h3>
-{% } %}
-<hr>
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th style="width: {%= 100 - (report.columns.length - 2) * 13 %}%"></th>
-			{% for(var i=2, l=report.columns.length; i<l; i++) { %}
-				<th class="text-right">{%= report.columns[i].label %}</th>
-			{% } %}
-		</tr>
-	</thead>
-	<tbody>
-		{% for(var j=0, k=data.length; j<k; j++) { %}
-			{%
-				var row = data[j];
-				var row_class = data[j].parent_account ? "" : "financial-statements-important";
-				row_class += data[j].account_name ? "" : " financial-statements-blank-row";
-			%}
-			<tr class="{%= row_class %}">
-				<td>
-					<span style="padding-left: {%= cint(data[j].indent) * 2 %}em">{%= row.account_name %}</span>
-				</td>
-				{% for(var i=2, l=report.columns.length; i<l; i++) { %}
-					<td class="text-right">
-						{% var fieldname = report.columns[i].field; %}
-						{% if (!is_null(row[fieldname])) { %}
-							{%= format_number(row[fieldname], null)%}
-						{% } %}
-					</td>
-				{% } %}
-			</tr>
-		{% } %}
-	</tbody>
+<table  class="table table-bordered">
+	<tr>
+		<th class="text-center">STT</th>
+		<th colspan="2" class="text-center">Chỉ tiêu</th>
+		<th class="text-center">Giá trị HDDV <br>(Chưa có thuế GTGT)</th>
+		<th colspan="2" class="text-center">Thuế GTGT</th>
+	</tr>
+	<tr>
+		<td width="5%" class="text-center">A</td>
+		<td width="47%">Không phát sinh hoạt động mua bán trong kỳ (đánh dấu "X")</td>
+		<td width="5%" class="text-center">[21]</td>
+		<td width="19%"></td>
+		<td width="5%"></td>
+		<td width="19%"></td>
+	</tr>
+	<tr>
+		<td class="text-center">II</td>
+		<td colspan="5">Hàng hóa, dịch vụ bán ra trong kỳ</td>
+	</tr>
+	<tr>
+		<td class="text-center">1</td>
+		<td>Hàng hóa, dịch vụ bán ra chịu thuế GTGT</td>
+		<td class="text-center">[26]</td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td class="text-center">2</td>
+		<td>Hàng hóa, dịch vụ bán ra chịu thuế GTGT ([27]=[29]+[30]+[32]:[28]=[31]+[33])</td>
+		<td class="text-center">[27]</td>
+		<td class="text-right">
+			{%= format_number(num27, null, 0) %}
+		</td>
+		<td class="text-center">[28]</td>
+		<td class="text-right">
+			{%= format_number(num28, null, 0) %}
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center">a</td>
+		<td>Hàng hóa, dịch vụ bán ra chịu thuế suất 0%</td>
+		<td class="text-center">[29]</td>
+		<td class="text-right">
+			{%= format_number(num29, null, 0) %}
+		</td>
+		<td></td>
+		<td class="text-right">
+			
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center">b</td>
+		<td>Hàng hóa, dịch vụ bán ra chịu thuế suất 5%</td>
+		<td class="text-center">[30]</td>
+		<td class="text-right">
+			{%= format_number(num30, null, 0) %}
+		</td>
+		<td class="text-center">[31]</td>
+		<td class="text-right">
+			{%= format_number(num31, null, 0) %}
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center">c</td>
+		<td>Hàng hóa, dịch vụ bán ra chịu thuế suất 10%</td>
+		<td class="text-center">[32]</td>
+		<td class="text-right">
+			{%= format_number(num32, null, 0) %}
+		</td>
+		<td class="text-center">[33]</td>
+		<td class="text-right">
+			{%= format_number(num33, null, 0) %}
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center"></td>
+		<td></td>
+		<td class="text-center">[0]</td>
+		<td class="text-right"></td>
+		<td class="text-center">[0]</td>
+		<td class="text-right"></td>
+	</tr>
+	<tr>
+		<td colspan="2"></td>
+		<td></td>
+		<td></td>
+		<td colspan="2"></td>
+	</tr>
 </table>
 <p class="text-right text-muted">Printed On {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>
