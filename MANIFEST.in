@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include vnerp *.css
+recursive-include vnerp *.csv
+recursive-include vnerp *.html
+recursive-include vnerp *.ico
+recursive-include vnerp *.js
+recursive-include vnerp *.json
+recursive-include vnerp *.md
+recursive-include vnerp *.png
+recursive-include vnerp *.py
+recursive-include vnerp *.svg
+recursive-include vnerp *.txt
+recursive-exclude vnerp *.pyc
