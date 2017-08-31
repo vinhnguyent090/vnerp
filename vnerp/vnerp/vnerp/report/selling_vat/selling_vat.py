@@ -15,7 +15,7 @@ def execute(filters=None):
 	
 def get_columns():
 	return [
-		"VAT Type::150",
+		"VAT Type::200",
 		"Net Total:Currency:150", "Tax %:Percent:50",
 		"Total Sales Tax Amount:Currency:150"
 	]
@@ -33,15 +33,13 @@ def get_invoices(filters):
 	GROUP BY si.customer, si.taxes_and_charges
 	ORDER BY si.customer""" % conditions
 
-	query = """SELECT si.taxes_and_charges,
-	sum(si.net_total),si_tax.rate, sum(si_tax.tax_amount)
-
-	FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
-	WHERE si.docstatus = 1 AND si_tax.parent = si.name 
-	 %s
-	GROUP BY si.taxes_and_charges
-	ORDER BY si_tax.rate
-
+	query = """
+SELECT si_tax.account_head,
+sum(si.net_total),si_tax.rate, sum(si_tax.tax_amount)
+FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
+WHERE si.docstatus = 1 AND si_tax.parent = si.name %s
+GROUP BY si_tax.account_head
+ORDER BY si_tax.rate
 	""" % conditions
 	
 	
