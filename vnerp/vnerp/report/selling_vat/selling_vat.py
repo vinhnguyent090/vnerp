@@ -15,39 +15,55 @@ def execute(filters=None):
 	
 def get_columns():
 	return [
-		"VAT Type::150",
+		"VAT Type::450",
 		"Net Total:Currency:150", "Tax %:Percent:50",
 		"Total Sales Tax Amount:Currency:150"
 	]
 
 def get_invoices(filters):
 	conditions = get_conditions(filters)
-	
-	query = """SELECT si.customer, si.taxes_and_charges, si.customer_address, sum(si.net_total),
-	sum(si_tax.total), si_tax.rate, sum(si_tax.tax_amount), 
-	sum(si.grand_total)
-	FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
-	WHERE si.docstatus = 1 AND si_tax.parent = si.name 
-	AND (select tax_rate from `tabAccount` where 
-	name = si_tax.account_head) REGEXP 'Sales Tax' %s
-	GROUP BY si.customer, si.taxes_and_charges
-	ORDER BY si.customer""" % conditions
 
-	query = """SELECT si.taxes_and_charges,
-	sum(si.net_total),si_tax.rate, sum(si_tax.tax_amount)
+	data = []
+	arrRate = [0,5,10]
 
-	FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
-	WHERE si.docstatus = 1 AND si_tax.parent = si.name 
-	 %s
-	GROUP BY si.taxes_and_charges
-	ORDER BY si_tax.rate
+	query = """ SELECT name, tax_rate FROM `tabAccount`
+	WHERE `account_type`='Tax' 
+	AND `freeze_account`='No' 
+	AND `is_group` = 0 
+	AND `name` LIKE '3331%' 
+	ORDER BY name """
 
-	""" % conditions
+	listAcount = frappe.db.sql(query, as_list=1)
+	arrAcount = []
+	arrTaxRate = []
+
+	for i in range(0, len(listAcount)):
+		arrAcount.append(listAcount[i][0])
+		arrTaxRate.append(listAcount[i][1])
+
+	for i in range(0, len(arrAcount)):
+		rate_name = arrAcount[i]
+		tax_rate = arrTaxRate[i]
+
+		query = """SELECT si_tax.account_head,
+		sum(si.base_net_total), %d, sum(si_tax.base_tax_amount)
+		FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
+		WHERE si.docstatus = 1 AND si_tax.parent = si.name AND si_tax.account_head = '%s'
+		%s
+		GROUP BY si_tax.account_head
+		""" %(tax_rate, rate_name, conditions)
+
 	
+		row = frappe.db.sql(query, as_list=1)
+
+		if (row):
+			data.append(row[0])
+		else:
+			data.append([rate_name, 0, tax_rate, 0])
 	
-	#frappe.msgprint (query)
+		#frappe.msgprint(query)
 	
-	si= frappe.db.sql(query, as_list=1)
+	#frappe.msgprint (data)
 	#tin = frappe.db.sql ("""SELECT name, customer, tin_no from `tabAddress` """, as_list=1)
 	
 	#frappe.msgprint(len(si))
@@ -57,8 +73,8 @@ def get_invoices(filters):
 	# 	for j in range(0,len(tin)):
 	# 		if si[i][2]==tin[j][0]:
 	# 			si[i][2]= tin[j][2]
-	
-	return si
+
+	return data
 	
 
 def get_conditions(filters):

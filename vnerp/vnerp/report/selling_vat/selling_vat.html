@@ -2,19 +2,54 @@
 	if (report.columns.length > 8) {
 		frappe.throw(__("Too many columns. Export the report and print it using a spreadsheet application."));
 	}
+	var date = frappe.datetime.str_to_obj(frappe.datetime.nowdate());
 	var col1 = report.columns[1].field;
 	var col2 = report.columns[2].field;
 	var col3 = report.columns[3].field;
 	var col4 = report.columns[4].field;
 
-	var num29 = !is_null(data[0][col2]) ? data[0][col2] : 0;
-	var num30 = !is_null(data[1][col2]) ? data[1][col2] : 0;
-	var num32 = !is_null(data[2][col2]) ? data[2][col2] : 0;
+	var text01 = 0;
+	var text02 = 0;
+	var text03 = 0;
+	var text04 = 0;
+	var text05 = 0;
+	var text06 = 0;
+	var text07 = 0;
+	var text08 = 0;
+	var text09 = 0;
+	var text10 = 0;
+	var text11 = 0;
+
+	var num21 = 0;
+	var num22 = 0;
+	var num23 = 0;
+	var num24 = 0;
+	var num25 = 0;
+	var num26 = 0;
+	var num37 = 0;
+	var num38 = 0;
+	var num39 = 0;
+	var num40b = 0;
+	var num41 = 0;
+	var num42 = 0;
+	var num43 = 0;
+
+	var num26 = !is_null(data[0][col2]) ? data[0][col2] : 0;
+	var num29 = !is_null(data[1][col2]) ? data[1][col2] : 0;
+	var num30 = !is_null(data[2][col2]) ? data[2][col2] : 0;
+	var num32 = !is_null(data[3][col2]) ? data[3][col2] : 0;
 	var num27 = num29+num30+num32;
 
-	var num31 = !is_null(data[1][col4]) ? data[1][col4] : 0;
-	var num33 = !is_null(data[2][col4]) ? data[2][col4] : 0;
+	var num31 = !is_null(data[2][col4]) ? data[2][col4] : 0;
+	var num33 = !is_null(data[3][col4]) ? data[3][col4] : 0;
 	var num28 = num31+num33;
+
+	var num34 = num26+num27;
+	var num35 = num28;
+	var num36 = num35 - num25;
+	var num40a = num36-num22+num37-num38-num39;
+	num40a = (num40a<0) ? 0 : num40a;
+	var num40 = num40a-num40b;
 
 %}
 
@@ -22,9 +57,10 @@
 	h1, .h1, h2, .h2, h3, .h3{ margin: 0}
 	hr { margin: 10px auto}
 	.print-format{
-		padding: 0.3in;
+		padding: 0.2in;
 		line-height: 1.7;
 	}
+	.font-weight-bold{font-weight: bold;}
 </style>
 <div class="text-center">
 		<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3>
@@ -34,8 +70,31 @@
 		<small><em>(Dành cho người nộp thuế khai thuế giá trị gia tăng theo phương pháp khấu trừ)</em></small>
 		<div><strong>[01] Kỳ tính thuế: Quý ___ năm _____ </strong></div>
 		<div>[02] Lần đầu ____ [03] Bổ sung lần thứ _____ </div>
-
 </div>
+<table width="100%" style="line-height: 1.1">
+	<tr class="font-weight-bold">
+		<td colspan="3">[04] Tên người nộp thuế:</td>
+	</tr>
+	<tr>
+		<td colspan="3">[05] Mã số thuế:</td>
+	</tr>
+	<tr>
+		<td colspan="3">[06] Địa chỉ:</td>
+	</tr>
+	<tr>
+		<td colspan="2">[07] Quận huyện:</td>
+		<td>[08] Tỉnh/thành phố:</td>
+	</tr>
+	<tr>
+		<td width="30%">[09] Điện thoại: </td>
+		<td width="30%">[10] Fax: </td>
+		<td width="40%">[11] Email:</td>
+	</tr>
+	<tr>
+		<td colspan="3">[   ] Gia hạn       Trường hợp được gia hạn: </td>
+	</tr>
+</table>
+
 <table  class="table table-bordered">
 	<tr>
 		<th class="text-center">STT</th>
@@ -43,27 +102,65 @@
 		<th class="text-center">Giá trị HDDV <br>(Chưa có thuế GTGT)</th>
 		<th colspan="2" class="text-center">Thuế GTGT</th>
 	</tr>
-	<tr>
-		<td width="5%" class="text-center">A</td>
-		<td width="47%">Không phát sinh hoạt động mua bán trong kỳ (đánh dấu "X")</td>
-		<td width="5%" class="text-center">[21]</td>
+	<tr class="font-weight-bold">
+		<td width="4%" class="text-center">A</td>
+		<td width="50%">Không phát sinh hoạt động mua bán trong kỳ (đánh dấu "X")</td>
+		<td width="4%" class="text-center">[21]</td>
 		<td width="19%"></td>
-		<td width="5%"></td>
+		<td width="4%"></td>
 		<td width="19%"></td>
 	</tr>
-	<tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">B</td>
+		<td colspan="3">Thuế GTGT còn được khấu trừ kỳ trước chuyển sang</td>
+		<td class="text-center">[22]</td>
+		<td class="text-right">
+			{%= format_number(num22, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">C</td>
+		<td colspan="5">Kê khai thuế GTGT phải nộp Ngân sách nhà nước</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">I</td>
+		<td colspan="5">Hàng hóa, dịch vụ (HHDV) mua vào trong kỳ</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">1</td>
+		<td>Giá trị và thuế GTGT của hàng hóa, dịch vụ mua vào</td>
+		<td class="text-center">[23]</td>
+		<td class="text-right">
+			{%= format_number(num23, null, 0) %}
+		</td>
+		<td class="text-center">[24]</td>
+		<td class="text-right">
+			{%= format_number(num24, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">2</td>
+		<td colspan="3">Tổng số thuế GTGT được khấu trừ kỳ này</td>
+		<td class="text-center">[25]</td>
+		<td class="text-right">
+			{%= format_number(num25, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
 		<td class="text-center">II</td>
 		<td colspan="5">Hàng hóa, dịch vụ bán ra trong kỳ</td>
 	</tr>
-	<tr>
+	<tr class="font-weight-bold">
 		<td class="text-center">1</td>
-		<td>Hàng hóa, dịch vụ bán ra chịu thuế GTGT</td>
+		<td>Hàng hóa, dịch vụ bán ra không chịu thuế GTGT</td>
 		<td class="text-center">[26]</td>
-		<td></td>
+		<td class="text-right">
+			{%= format_number(num26, null, 0) %}
+		</td>
 		<td></td>
 		<td></td>
 	</tr>
-	<tr>
+	<tr class="font-weight-bold">
 		<td class="text-center">2</td>
 		<td>Hàng hóa, dịch vụ bán ra chịu thuế GTGT ([27]=[29]+[30]+[32]:[28]=[31]+[33])</td>
 		<td class="text-center">[27]</td>
@@ -111,19 +208,161 @@
 			{%= format_number(num33, null, 0) %}
 		</td>
 	</tr>
-	<tr>
-		<td class="text-center"></td>
-		<td></td>
-		<td class="text-center">[0]</td>
-		<td class="text-right"></td>
-		<td class="text-center">[0]</td>
-		<td class="text-right"></td>
+	<tr class="font-weight-bold">
+		<td class="text-center">3</td>
+		<td>Tổng doanh thu và thuế GTGT của HHDV bán ra ([34]=[26]+[27];[35]=[28])</td>
+		<td class="text-center">[34]</td>
+		<td class="text-right">
+			{%= format_number(num34, null, 0) %}
+		</td>
+		<td class="text-center">[35]</td>
+		<td class="text-right">
+			{%= format_number(num35, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">III</td>
+		<td colspan="3">Thuế GTGT phát sinh trong kỳ ([36]=[35]-[25])</td>
+		<td class="text-center">[36]</td>
+		<td class="text-right">
+			{%= format_number(num36, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">IV</td>
+		<td colspan="5">Điều chỉnh tăng, giảm thuế GTGT còn  được khấu trừ của các kỳ trước</td>
 	</tr>
 	<tr>
-		<td colspan="2"></td>
-		<td></td>
-		<td></td>
-		<td colspan="2"></td>
+		<td class="text-center">1</td>
+		<td colspan="3">Điều chỉnh giảm</td>
+		<td class="text-center">[37]</td>
+		<td class="text-right">
+			{%= format_number(num37, null, 0) %}
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center">2</td>
+		<td colspan="3">Điều chỉnh tăng</td>
+		<td class="text-center">[38]</td>
+		<td class="text-right">
+			{%= format_number(num38, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">V</td>
+		<td colspan="3">Thuế GTGT đã nộp ở địa phương khác của hoạt động kinh doanh xây dựng, lắp đặt, bán hàng, bất động sản ngoại tỉnh</td>
+		<td class="text-center">[39]</td>
+		<td class="text-right">
+			{%= format_number(num39, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">VI</td>
+		<td colspan="5">Xác định nghĩa vụ thuế GTGT phải nộp trong kỳ:</td>
+	</tr>
+	<tr>
+		<td class="text-center">1</td>
+		<td colspan="3">Thuế GTGT phải nộp của hoạt động sản xuất kinh doanh trong kỳ (nếu [40a] = [36]-[22]+[37]-[38]-[39] >= 0) </td>
+		<td class="text-center">[40a]</td>
+		<td class="text-right">
+			{%= format_number(num40a, null, 0) %}
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center">2</td>
+		<td colspan="3">Thuế GTGT mua vào của dự án đầu tư được bù trừ với thuế GTGT còn phải nộp của hoạt động sản xuất kinh doanh cùng kỳ tính thuế</td>
+		<td class="text-center">[40b]</td>
+		<td class="text-right">
+			{%= format_number(num40b, null, 0) %}
+		</td>
+	</tr>
+	<tr>
+		<td class="text-center">3</td>
+		<td colspan="3">Thuế GTGTcòn phải nộp trong kỳ ([40]=[40a]-[40b])</td>
+		<td class="text-center">[40]</td>
+		<td class="text-right">
+			{%= format_number(num40, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">4</td>
+		<td colspan="3">Thuế GTGT chưa khấu trừ hết kỳ này (nếu [41]=[36]-[22]+[37]-[38]-[39]<0)</td>
+		<td class="text-center">[41]</td>
+		<td class="text-right">
+			{%= format_number(num41, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">4.1</td>
+		<td colspan="3">Tổng số thuế GTGT đề nghị hoàn</td>
+		<td class="text-center">[42]</td>
+		<td class="text-right">
+			{%= format_number(num42, null, 0) %}
+		</td>
+	</tr>
+	<tr class="font-weight-bold">
+		<td class="text-center">4.2</td>
+		<td colspan="3">Thuế GTGT còn được khấu trừ chuyển kỳ sau ([43]=[41]-[42])</td>
+		<td class="text-center">[43]</td>
+		<td class="text-right">
+			{%= format_number(num43, null, 0) %}
+		</td>
 	</tr>
 </table>
-<p class="text-right text-muted">Printed On {%= dateutil.str_to_user(dateutil.get_datetime_as_string()) %}</p>
+<br>
+<div class="font-weight-bold">
+Tôi cam đoan số liệu khai trên là đúng và chịu trách nhiệm trước pháp luật về những số liệu đã khai./.
+</div>
+<table width="100%" style="line-height: 1.1">
+	<tr>
+		<td width="60%">
+				
+		</td>
+		<td width="40%" class="text-center">
+			Ngày {%= date.getDate() %} tháng {%= date.getMonth()+1 %} năm {%= date.getFullYear() %}
+		</td>
+	</tr>
+	<tr>
+		<td class="font-weight-bold">
+			NHÂN VIÊN ĐẠI LÝ THUẾ
+		</td>
+		<td class="font-weight-bold text-center">
+			NGƯỜI NỘP THUẾ hoặc
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Họ và tên: ..............................................................................................   
+		</td>
+		<td class="font-weight-bold text-center">
+			ĐẠI DIỆN HỢP PHÁP CỦA NGƯỜI NỘP THUẾ
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Chứng chỉ hàng nghề số: ..................................................................   
+		</td>
+		<td class="text-center">
+			(Ký, ghi rõ họ tên chức vụ và đóng dấu (nếu có) )
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+		</td>
+	</tr>
+</table>
+<div id="header-html" class="hidden-pdf">
+    <div id="variables" style="display:none;">
+        <span id="margin-top">0mm</span>
+    	<span id="margin-left">0mm</span>
+    	<span id="margin-right">0mm</span>
+    	<span id="margin-bottom">0mm</span>
+    </div>   
+</div>
