@@ -1,7 +1,4 @@
 {%
-	if (report.columns.length > 8) {
-		frappe.throw(__("Too many columns. Export the report and print it using a spreadsheet application."));
-	}
 	var date = frappe.datetime.str_to_obj(frappe.datetime.nowdate());
 	var col1 = report.columns[1].field;
 	var col2 = report.columns[2].field;
@@ -11,14 +8,7 @@
 	var text01 = 0;
 	var text02 = 0;
 	var text03 = 0;
-	var text04 = 0;
-	var text05 = 0;
-	var text06 = 0;
-	var text07 = 0;
-	var text08 = 0;
-	var text09 = 0;
-	var text10 = 0;
-	var text11 = 0;
+	
 
 	var num21 = 0;
 	var num22 = 0;
@@ -51,6 +41,20 @@
 	num40a = (num40a<0) ? 0 : num40a;
 	var num40 = num40a-num40b;
 
+	var address = data_to_be_printed.address;
+	var company = data_to_be_printed.company;
+
+	var text04 = address.address_title;
+	var text05 = !is_null(company.tax_id) ? company.tax_id : '';
+	var text06 = address.address_line1;
+	var text07 = address.address_line2;
+	var text08 = address.city;
+	var text09 = address.phone;
+	var text10 = address.fax;
+	var text11 = address.email_id;
+
+	var arrText05 = text05.split("");
+
 %}
 
 <style>
@@ -61,6 +65,9 @@
 		line-height: 1.7;
 	}
 	.font-weight-bold{font-weight: bold;}
+	.print-format td.no_padding {padding:0 !important}
+	.print-format .padding td, .print-format td.padding {padding:6 !important}
+	.print-format .table_tax td{padding:6px 10px !important}
 </style>
 <div class="text-center">
 		<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3>
@@ -73,29 +80,72 @@
 </div>
 <table width="100%" style="line-height: 1.1">
 	<tr class="font-weight-bold">
-		<td colspan="3">[04] Tên người nộp thuế:</td>
+		<td colspan="3">[04] Tên người nộp thuế: {%= text04 %}</td>
 	</tr>
 	<tr>
-		<td colspan="3">[05] Mã số thuế:</td>
+		<td colspan="3">
+			<table>
+				<tr>
+					<td class="no_padding" style="vertical-align: middle !important"><strong>[05]</strong> Mã số thuế:</td>
+					<td class="no_padding" width="50px">
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{%= arrText05[0] || '&nbsp;' %}</td>
+								<td>{%= arrText05[1] || '&nbsp;' %}</td>
+								<td>{%= arrText05[2] || '&nbsp;' %}</td>
+								<td>{%= arrText05[3] || '&nbsp;' %}</td>
+								<td>{%= arrText05[4] || '&nbsp;' %}</td>
+								<td>{%= arrText05[5] || '&nbsp;' %}</td>
+								<td>{%= arrText05[6] || '&nbsp;' %}</td>
+								<td>{%= arrText05[7] || '&nbsp;' %}</td>
+								<td>{%= arrText05[8] || '&nbsp;' %}</td>
+								<td>{%= arrText05[9] || '&nbsp;' %}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table class="table_tax">
+							<tr>
+								<td>{%= arrText05[10] || '-' %}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{%= arrText05[11] || '&nbsp;' %}</td>
+								<td>{%= arrText05[12] || '&nbsp;' %}</td>
+								<td>{%= arrText05[13] || '&nbsp;' %}</td>
+								<td>{%= arrText05[14] || '&nbsp;' %}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
 	</tr>
 	<tr>
-		<td colspan="3">[06] Địa chỉ:</td>
+		<td colspan="3"><strong>[06]</strong> Địa chỉ: {%= text06 %}</td>
 	</tr>
 	<tr>
-		<td colspan="2">[07] Quận huyện:</td>
-		<td>[08] Tỉnh/thành phố:</td>
+		<td colspan="2"><strong>[07]</strong> Quận huyện: {%= text07 %}</td>
+		<td><strong>[08]</strong> Tỉnh/thành phố: {%= text08 %}</td>
 	</tr>
 	<tr>
-		<td width="30%">[09] Điện thoại: </td>
-		<td width="30%">[10] Fax: </td>
-		<td width="40%">[11] Email:</td>
-	</tr>
-	<tr>
-		<td colspan="3">[   ] Gia hạn       Trường hợp được gia hạn: </td>
+		<td width="30%"><strong>[09]</strong> Điện thoại: {%= text09 %}</td>
+		<td width="30%"><strong>[10]</strong> Fax: {%= text10 %}</td>
+		<td width="40%"><strong>[11]</strong> Email: {%= text11 %}</td>
 	</tr>
 </table>
 
-<table  class="table table-bordered">
+<table width="100%">
+	<tr>
+		<td class="text-right"><i>Đơn vị tiền: đồng Việt Nam</i></td>
+	</tr>
+</table>	
+<table class="table-bordered">
 	<tr>
 		<th class="text-center">STT</th>
 		<th colspan="2" class="text-center">Chỉ tiêu</th>

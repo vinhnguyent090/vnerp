@@ -9,9 +9,17 @@ from frappe import msgprint, _
 def execute(filters=None):
 	if not filters: filters = {}
 
+	address = frappe.get_doc("Address", filters.company)
+	company = frappe.get_doc("Company", filters.company)
+
+	data_to_be_printed = {
+		"company": company,
+		"address": address
+	}
+
 	columns = get_columns()
 	data = get_invoices(filters)
-	return columns, data
+	return columns, data, None, None, data_to_be_printed
 	
 def get_columns():
 	return [
