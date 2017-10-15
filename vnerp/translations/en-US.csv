@@ -1,0 +1,85 @@
+DocType:Tax Report Info,domain 1,"Ngành hàng sản xuất, kinh doanh thông thường"
+DocType:Tax Report Info,domain 2,"Từ hoạt động thăm dò, phát triển mỏ và khai thác dầu, khí thiên nhiên"
+DocType:Tax Report Info,domain 3,"Từ hoạt động xổ số kiến thiết của các công ty xổ số kiến thiết"
+DocType:Tax Report Info,domain 4,"Tổ chức được giao thu phí, lệ thuộc ngân sách Nhà nước"
+DocType:Tax Report Info,domain 5,"Ngân hàng"
+
+DocType:Tax Report GTGT01,domain 1,"Ngành hàng sản xuất, kinh doanh thông thường"
+DocType:Tax Report GTGT01,domain 2,"Từ hoạt động thăm dò, phát triển mỏ và khai thác dầu, khí thiên nhiên"
+DocType:Tax Report GTGT01,domain 3,"Từ hoạt động xổ số kiến thiết của các công ty xổ số kiến thiết"
+DocType:Tax Report GTGT01,domain 4,"Tổ chức được giao thu phí, lệ thuộc ngân sách Nhà nước"
+DocType:Tax Report GTGT01,domain 5,"Ngân hàng"
+
+DocType:Tax Report GTGT01,mau so,Mẫu số: <strong>01/GTGT</strong> <br>(Ban hàng kèm theo Thông tư <br>26/2015/TT-BTC ngày <br>27/2/2015 của Bộ Tài chính)
+DocType:Tax Report GTGT01,cong hoa,<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3><div><strong>Độc lập - Tự do - Hạnh phúc</strong></div>
+DocType:Tax Report GTGT01,to khai thue gia tri gia tang,TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG
+DocType:Tax Report GTGT01,danh cho theo phuong phap khau tru,(Dành cho người nộp thuế khai thuế giá trị gia tăng theo phương pháp khấu trừ)
+DocType:Tax Report GTGT01,text01,[01] Kỳ tính thuế:
+DocType:Tax Report GTGT01,text02,[02] Lần đầu
+DocType:Tax Report GTGT01,text03,[03] Bổ sung lần thứ
+DocType:Tax Report GTGT01,text04,[04] Tên người nộp thuế
+DocType:Tax Report GTGT01,text05,<strong>[05]</strong> Mã số thuế
+DocType:Tax Report GTGT01,text06,<strong>[06]</strong> Địa chỉ
+DocType:Tax Report GTGT01,text07,<strong>[07]</strong> Quận huyện
+DocType:Tax Report GTGT01,text08,<strong>[08]</strong> Tỉnh/thành phố:
+DocType:Tax Report GTGT01,text09,<strong>[09]</strong> Điện thoại
+DocType:Tax Report GTGT01,text10,<strong>[10]</strong> Fax
+DocType:Tax Report GTGT01,text11,<strong>[11]</strong> Email
+DocType:Tax Report GTGT01,text12,[12] Tên đại lý thuế (nếu có)
+DocType:Tax Report GTGT01,text13,<strong>[13]</strong> Mã số thuế
+DocType:Tax Report GTGT01,text14,<strong>[14]</strong> Địa chỉ
+DocType:Tax Report GTGT01,text15,<strong>[15]</strong> Quận huyện
+DocType:Tax Report GTGT01,text16,<strong>[16]</strong> Tỉnh/thành phố
+DocType:Tax Report GTGT01,text17,<strong>[17]</strong> Điện thoại
+DocType:Tax Report GTGT01,text18,<strong>[18]</strong> Fax
+DocType:Tax Report GTGT01,text19,<strong>[19]</strong> Email
+DocType:Tax Report GTGT01,text20,<strong>[20]</strong> Hợp đồng đại lý thuế: Số:
+DocType:Tax Report GTGT01,text21,Không phát sinh hoạt động mua bán trong kỳ (đánh dấu "X")
+DocType:Tax Report GTGT01,text22,Thuế GTGT còn được khấu trừ kỳ trước chuyển sang
+DocType:Tax Report GTGT01,textC,Kê khai thuế GTGT phải nộp Ngân sách nhà nước
+DocType:Tax Report GTGT01,textCI,"Hàng hóa, dịch vụ (HHDV) mua vào trong kỳ"
+DocType:Tax Report GTGT01,text23,"Giá trị và thuế GTGT của hàng hóa, dịch vụ mua vào"
+DocType:Tax Report GTGT01,text25,Tổng số thuế GTGT được khấu trừ kỳ này
+DocType:Tax Report GTGT01,textII,"Hàng hóa, dịch vụ bán ra trong kỳ"
+DocType:Tax Report GTGT01,text26,"Hàng hóa, dịch vụ bán ra không chịu thuế GTGT"
+DocType:Tax Report GTGT01,text27,"Hàng hóa, dịch vụ bán ra chịu thuế GTGT ([27]=[29]+[30]+[32]:[28]=[31]+[33])"
+DocType:Tax Report GTGT01,text29,"Hàng hóa, dịch vụ bán ra chịu thuế suất 0%"
+DocType:Tax Report GTGT01,text30,"Hàng hóa, dịch vụ bán ra chịu thuế suất 5%"
+DocType:Tax Report GTGT01,text32,"Hàng hóa, dịch vụ bán ra chịu thuế suất 10%"
+DocType:Tax Report GTGT01,text34,"Tổng doanh thu và thuế GTGT của HHDV bán ra ([34]=[26]+[27];[35]=[28])"
+DocType:Tax Report GTGT01,text36,"Thuế GTGT phát sinh trong kỳ ([36]=[35]-[25])"
+DocType:Tax Report GTGT01,textIV,"Điều chỉnh tăng, giảm thuế GTGT còn  được khấu trừ của các kỳ trước"
+DocType:Tax Report GTGT01,text37,"Điều chỉnh giảm"
+DocType:Tax Report GTGT01,text38,"Điều chỉnh tăng"
+DocType:Tax Report GTGT01,text39,"Thuế GTGT đã nộp ở địa phương khác của hoạt động kinh doanh xây dựng, lắp đặt, bán hàng, bất động sản ngoại tỉnh"
+DocType:Tax Report GTGT01,textVI,"Xác định nghĩa vụ thuế GTGT phải nộp trong kỳ:"
+DocType:Tax Report GTGT01,text40a,"Thuế GTGT phải nộp của hoạt động sản xuất kinh doanh trong kỳ (nếu [40a] = [36]-[22]+[37]-[38]-[39] >= 0)"
+DocType:Tax Report GTGT01,text40b,"Thuế GTGT mua vào của dự án đầu tư được bù trừ với thuế GTGT còn phải nộp của hoạt động sản xuất kinh doanh cùng kỳ tính thuế"
+DocType:Tax Report GTGT01,text40,"Thuế GTGTcòn phải nộp trong kỳ ([40]=[40a]-[40b])"
+DocType:Tax Report GTGT01,text41,"Thuế GTGT chưa khấu trừ hết kỳ này (nếu [41]=[36]-[22]+[37]-[38]-[39]<0)"
+DocType:Tax Report GTGT01,text42,"Tổng số thuế GTGT đề nghị hoàn"
+DocType:Tax Report GTGT01,text43,"Thuế GTGT còn được khấu trừ chuyển kỳ sau ([43]=[41]-[42])"
+DocType:Tax Report GTGT01,toi cam doan,"Tôi cam đoan số liệu khai trên là đúng và chịu trách nhiệm trước pháp luật về những số liệu đã khai./."
+DocType:Tax Report GTGT01,nhan vien dai ly thue,"NHÂN VIÊN ĐẠI LÝ THUẾ"
+DocType:Tax Report GTGT01,nguoi nop thue hoac,"NGƯỜI NỘP THUẾ hoặc"
+DocType:Tax Report GTGT01,ho va ten,"Họ và tên"
+DocType:Tax Report GTGT01,dai dien hop phao cua nguoi nop thue,"ĐẠI DIỆN HỢP PHÁP CỦA NGƯỜI NỘP THUẾ"
+DocType:Tax Report GTGT01,chung chi hanh nghe so,"Chứng chỉ hành nghề số"
+DocType:Tax Report GTGT01,ky ghi ro ho ten chuc vu va dong dau,"(Ký, ghi rõ họ tên chức vụ và đóng dấu (nếu có) )"
+DocType:Tax Report GTGT01,ngay {0} thang {1} nam {2},"Ngày {0} tháng {1} năm {2}"
+
+
+
+
+DocType:Tax Report GTGT01,Ngay,Ngày
+DocType:Tax Report GTGT01,Don vi tien: dong Viet Nam,Đơn vị tiền: đồng Việt Nam
+
+DocType:Tax Report GTGT01,STT,STT
+DocType:Tax Report GTGT01,Chi tieu,Chỉ tiêu
+DocType:Tax Report GTGT01,Gia tri HDDV (Chua co thue GTGT),Giá trị HDDV <br>(Chưa có thuế GTGT)
+DocType:Tax Report GTGT01,Thue GTGT,Thuế GTGT
+
+DocType:Tax Report GTGT01,Quy {0} {1}, Quý {0} năm {1}
+DocType:Tax Report GTGT01,Thang {0} {1}, Tháng {0} năm {1}
+
+

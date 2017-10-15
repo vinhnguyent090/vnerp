@@ -1,20 +1,33 @@
 {%
 	var date = frappe.datetime.str_to_obj(frappe.datetime.nowdate());
+
 	var col1 = report.columns[1].field;
 	var col2 = report.columns[2].field;
 	var col3 = report.columns[3].field;
 	var col4 = report.columns[4].field;
 
-	var text01 = 0;
-	var text02 = 0;
-	var text03 = 0;
+	var text01 = "";
+
+	if(filters.period=="Quarter"){
+		text01 = "Quý "+filters.period_num+ " năm " + filters.year;
+	}
+	if(filters.period=="Month"){
+		text01 = "Tháng "+filters.period_num+ " năm " + filters.year;
+	}
+
+	var text02 = "";
+	var text03 = "";
+
+	if(filters.version==undefined){
+		text02 = "X";
+	}else{
+		text03 = filters.version;
+	}
 	
 
 	var num21 = 0;
 	var num22 = 0;
-	var num23 = 0;
-	var num24 = 0;
-	var num25 = 0;
+	
 	var num26 = 0;
 	var num37 = 0;
 	var num38 = 0;
@@ -24,14 +37,26 @@
 	var num42 = 0;
 	var num43 = 0;
 
-	var num26 = !is_null(data[0][col2]) ? data[0][col2] : 0;
-	var num29 = !is_null(data[1][col2]) ? data[1][col2] : 0;
-	var num30 = !is_null(data[2][col2]) ? data[2][col2] : 0;
-	var num32 = !is_null(data[3][col2]) ? data[3][col2] : 0;
+	var num23_1 = !is_null(data[0][col2]) ? data[0][col2] : 0;
+	var num23_2 = !is_null(data[1][col2]) ? data[1][col2] : 0;
+	var num23_3 = !is_null(data[2][col2]) ? data[2][col2] : 0;
+	var num23_4 = !is_null(data[3][col2]) ? data[3][col2] : 0;
+	var num23 = (num23_1+num23_2+num23_3+num23_4) * (-1);
+
+	var num24_3 = !is_null(data[2][col4]) ? data[2][col4] : 0;
+	var num24_4 = !is_null(data[3][col4]) ? data[3][col4] : 0;
+	var num24 = (num24_3+num24_4) * (-1);
+
+	var num25 = num24;
+
+	var num26 = !is_null(data[4][col2]) ? data[4][col2] : 0;
+	var num29 = !is_null(data[5][col2]) ? data[5][col2] : 0;
+	var num30 = !is_null(data[6][col2]) ? data[6][col2] : 0;
+	var num32 = !is_null(data[7][col2]) ? data[7][col2] : 0;
 	var num27 = num29+num30+num32;
 
-	var num31 = !is_null(data[2][col4]) ? data[2][col4] : 0;
-	var num33 = !is_null(data[3][col4]) ? data[3][col4] : 0;
+	var num31 = !is_null(data[6][col4]) ? data[6][col4] : 0;
+	var num33 = !is_null(data[7][col4]) ? data[7][col4] : 0;
 	var num28 = num31+num33;
 
 	var num34 = num26+num27;
@@ -55,6 +80,18 @@
 
 	var arrText05 = text05.split("");
 
+	var text12 = "";
+	var text13 = "";
+	var text14 = "";
+	var text15 = "";
+	var text16 = "";
+	var text17 = "";
+	var text18 = "";
+	var text19 = "";
+	var text20 = "";
+
+	var arrText13 = text13.split("");
+
 %}
 
 <style>
@@ -67,17 +104,34 @@
 	.font-weight-bold{font-weight: bold;}
 	.print-format td.no_padding {padding:0 !important}
 	.print-format .padding td, .print-format td.padding {padding:6 !important}
-	.print-format .table_tax td{padding:6px 10px !important}
+	.print-format .table_tax td{padding:6px 10px !important; width:30px; text-align:center}
+	.print-format .tax_form{
+		float:right;
+		width :200px;
+		border: solid 1px;
+		position:absolute;
+		right:0;
+		line-height: 1.5;
+	}
 </style>
-<div class="text-center">
-		<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3>
-		<div><strong>Độc lập - Tự do - Hạnh phúc</strong></div>
-		<hr style="width: 30%;">
-		<h2>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG</h2>
-		<small><em>(Dành cho người nộp thuế khai thuế giá trị gia tăng theo phương pháp khấu trừ)</em></small>
-		<div><strong>[01] Kỳ tính thuế: Quý ___ năm _____ </strong></div>
-		<div>[02] Lần đầu ____ [03] Bổ sung lần thứ _____ </div>
+
+<div class="text-center" style="float:left; width:100%; position:relative">
+	<div class="text-center tax_form">
+		Mẫu số: <strong>01/GTGT</strong> <br>
+		(Ban hàng kèm theo Thông tư <br>
+		26/2015/TT-BTC ngày <br>
+		27/2/2015 của Bộ Tài chính)
+
+	</div>
+	<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3>
+	<div><strong>Độc lập - Tự do - Hạnh phúc</strong></div>
+	<hr style="width: 30%;">
+	<h2>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG</h2>
+	<small><em>(Dành cho người nộp thuế khai thuế giá trị gia tăng theo phương pháp khấu trừ)</em></small>
+	<div><strong>[01] Kỳ tính thuế: {%= text01 %} </strong></div>
+	<div>[02] Lần đầu [  {%= text02 || '&nbsp;' %} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[03] Bổ sung lần thứ [ {%= text03 || '&nbsp;' %} ] </div>
 </div>
+<br>
 <table width="100%" style="line-height: 1.1">
 	<tr class="font-weight-bold">
 		<td colspan="3">[04] Tên người nộp thuế: {%= text04 %}</td>
@@ -137,6 +191,72 @@
 		<td width="30%"><strong>[09]</strong> Điện thoại: {%= text09 %}</td>
 		<td width="30%"><strong>[10]</strong> Fax: {%= text10 %}</td>
 		<td width="40%"><strong>[11]</strong> Email: {%= text11 %}</td>
+	</tr>
+</table>
+<br>
+<table width="100%" style="line-height: 1.1">
+	<tr class="font-weight-bold">
+		<td colspan="3">[12] Tên đại lý thuế (nếu có): {%= text12 %}</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<table>
+				<tr>
+					<td class="no_padding" style="vertical-align: middle !important"><strong>[13]</strong> Mã số thuế:</td>
+					<td class="no_padding" width="50px">
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{%= arrText13[0] || '&nbsp;' %}</td>
+								<td>{%= arrText13[1] || '&nbsp;' %}</td>
+								<td>{%= arrText13[2] || '&nbsp;' %}</td>
+								<td>{%= arrText13[3] || '&nbsp;' %}</td>
+								<td>{%= arrText13[4] || '&nbsp;' %}</td>
+								<td>{%= arrText13[5] || '&nbsp;' %}</td>
+								<td>{%= arrText13[6] || '&nbsp;' %}</td>
+								<td>{%= arrText13[7] || '&nbsp;' %}</td>
+								<td>{%= arrText13[8] || '&nbsp;' %}</td>
+								<td>{%= arrText13[9] || '&nbsp;' %}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table class="table_tax">
+							<tr>
+								<td>{%= arrText13[10] || '-' %}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{%= arrText13[11] || '&nbsp;' %}</td>
+								<td>{%= arrText13[12] || '&nbsp;' %}</td>
+								<td>{%= arrText13[13] || '&nbsp;' %}</td>
+								<td>{%= arrText13[14] || '&nbsp;' %}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3"><strong>[14]</strong> Địa chỉ: {%= text14 %}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><strong>[15]</strong> Quận huyện: {%= text15 %}</td>
+		<td><strong>[16]</strong> Tỉnh/thành phố: {%= text16 %}</td>
+	</tr>
+	<tr>
+		<td width="30%"><strong>[17]</strong> Điện thoại: {%= text17 %}</td>
+		<td width="30%"><strong>[18]</strong> Fax: {%= text18 %}</td>
+		<td width="40%"><strong>[19]</strong> Email: {%= text19 %}</td>
+	</tr>
+	<tr>
+		<td colspan="2"><strong>[20]</strong> Hợp đồng đại lý thuế: Số:</td>
+		<td>Ngày:</td>
 	</tr>
 </table>
 
@@ -410,9 +530,9 @@ Tôi cam đoan số liệu khai trên là đúng và chịu trách nhiệm trư�
 </table>
 <div id="header-html" class="hidden-pdf">
     <div id="variables" style="display:none;">
-        <span id="margin-top">0mm</span>
+        <span id="margin-top">10mm</span>
     	<span id="margin-left">0mm</span>
     	<span id="margin-right">0mm</span>
-    	<span id="margin-bottom">0mm</span>
-    </div>   
-</div>
+    	<span id="margin-bottom">10mm</span>
+    </div>
+</div>	

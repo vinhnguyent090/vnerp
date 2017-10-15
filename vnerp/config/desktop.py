@@ -8,7 +8,9 @@ def get_data():
 			"module_name": "vnerp",
 			"color": "grey",
 			"icon": "octicon octicon-file-directory",
-			"type": "module",
-			"label": _("vnerp")
+			"label": _("vvv"),
+			"link": "List/Room",
+			"_doctype": "Room",
+			"type": "list"
 		}
 	]
