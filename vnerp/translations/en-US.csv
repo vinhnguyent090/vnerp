@@ -14,26 +14,26 @@ DocType:Tax Report GTGT01,mau so,Mẫu số: <strong>01/GTGT</strong> <br>(Ban h
 DocType:Tax Report GTGT01,cong hoa,<h3>CỘNG HÒA XÃ HỘI CHỦ NGHĨA</h3><div><strong>Độc lập - Tự do - Hạnh phúc</strong></div>
 DocType:Tax Report GTGT01,to khai thue gia tri gia tang,TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG
 DocType:Tax Report GTGT01,danh cho theo phuong phap khau tru,(Dành cho người nộp thuế khai thuế giá trị gia tăng theo phương pháp khấu trừ)
-DocType:Tax Report GTGT01,text01,[01] Kỳ tính thuế:
-DocType:Tax Report GTGT01,text02,[02] Lần đầu
-DocType:Tax Report GTGT01,text03,[03] Bổ sung lần thứ
-DocType:Tax Report GTGT01,text04,[04] Tên người nộp thuế
-DocType:Tax Report GTGT01,text05,<strong>[05]</strong> Mã số thuế
-DocType:Tax Report GTGT01,text06,<strong>[06]</strong> Địa chỉ
-DocType:Tax Report GTGT01,text07,<strong>[07]</strong> Quận huyện
-DocType:Tax Report GTGT01,text08,<strong>[08]</strong> Tỉnh/thành phố:
-DocType:Tax Report GTGT01,text09,<strong>[09]</strong> Điện thoại
-DocType:Tax Report GTGT01,text10,<strong>[10]</strong> Fax
-DocType:Tax Report GTGT01,text11,<strong>[11]</strong> Email
-DocType:Tax Report GTGT01,text12,[12] Tên đại lý thuế (nếu có)
-DocType:Tax Report GTGT01,text13,<strong>[13]</strong> Mã số thuế
-DocType:Tax Report GTGT01,text14,<strong>[14]</strong> Địa chỉ
-DocType:Tax Report GTGT01,text15,<strong>[15]</strong> Quận huyện
-DocType:Tax Report GTGT01,text16,<strong>[16]</strong> Tỉnh/thành phố
-DocType:Tax Report GTGT01,text17,<strong>[17]</strong> Điện thoại
-DocType:Tax Report GTGT01,text18,<strong>[18]</strong> Fax
-DocType:Tax Report GTGT01,text19,<strong>[19]</strong> Email
-DocType:Tax Report GTGT01,text20,<strong>[20]</strong> Hợp đồng đại lý thuế: Số:
+DocType:Tax Report GTGT01,text01,Kỳ tính thuế:
+DocType:Tax Report GTGT01,text02,Lần đầu
+DocType:Tax Report GTGT01,text03,Bổ sung lần thứ
+DocType:Tax Report GTGT01,text04,Tên người nộp thuế
+DocType:Tax Report GTGT01,text05,Mã số thuế
+DocType:Tax Report GTGT01,text06,Địa chỉ
+DocType:Tax Report GTGT01,text07,Quận huyện
+DocType:Tax Report GTGT01,text08,Tỉnh/thành phố:
+DocType:Tax Report GTGT01,text09,Điện thoại
+DocType:Tax Report GTGT01,text10,Fax
+DocType:Tax Report GTGT01,text11,Email
+DocType:Tax Report GTGT01,text12,Tên đại lý thuế (nếu có)
+DocType:Tax Report GTGT01,text13,Mã số thuế
+DocType:Tax Report GTGT01,text14,Địa chỉ
+DocType:Tax Report GTGT01,text15,Quận huyện
+DocType:Tax Report GTGT01,text16,Tỉnh/thành phố
+DocType:Tax Report GTGT01,text17,Điện thoại
+DocType:Tax Report GTGT01,text18,Fax
+DocType:Tax Report GTGT01,text19,Email
+DocType:Tax Report GTGT01,text20,Hợp đồng đại lý thuế: Số:
 DocType:Tax Report GTGT01,text21,Không phát sinh hoạt động mua bán trong kỳ (đánh dấu "X")
 DocType:Tax Report GTGT01,text22,Thuế GTGT còn được khấu trừ kỳ trước chuyển sang
 DocType:Tax Report GTGT01,textC,Kê khai thuế GTGT phải nộp Ngân sách nhà nước
@@ -68,6 +68,10 @@ DocType:Tax Report GTGT01,chung chi hanh nghe so,"Chứng chỉ hành nghề s�
 DocType:Tax Report GTGT01,ky ghi ro ho ten chuc vu va dong dau,"(Ký, ghi rõ họ tên chức vụ và đóng dấu (nếu có) )"
 DocType:Tax Report GTGT01,ngay {0} thang {1} nam {2},"Ngày {0} tháng {1} năm {2}"
 
+DocType:Tax Report GTGT01,mau so pl01-1,"Mẫu số: <strong>01-1/GTGT</strong> <br>(Ban hàng kèm theo Thông tư <br>28/2011/TT-BTC ngày <br>28/2/2011 của Bộ Tài chính)"
+DocType:Tax Report GTGT01,tieu de pl01-1,"BẢNG KÊ HOÁ ĐƠN, CHỨNG TỪ HÀNG HOÁ, DỊCH VỤ BÁN RA"
+DocType:Tax Report GTGT01,kem theo to khai thue GTGT 01,"(Kèm theo tờ khai thuế GTGT mẫu số 01/GTGT ngày.tháng.năm.........)"
+DocType:Tax Report GTGT01,"Hang hoa dich vu khong chiu thue gia tri gia tang (GTGT)","Hàng hóa, dịch vụ không chịu thuế gia tri gia tang GTGT"
 
 
 

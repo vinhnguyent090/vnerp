@@ -1,0 +1,167 @@
+<div class="page-landscape">
+
+<div class="text-center" style="float:left; width:100%; position:relative">
+	<div class="text-center tax_form">
+		{{ _("mau so pl01-1") }}
+	</div>
+	<h2>{{ _("tieu de pl01-1") }}</h2>
+	<span style="font-size:95%"><em>{{ _("kem theo to khai thue GTGT 01") }}</em></span>
+	<div><strong><strong>[01]</strong> {{ _("text01") }} {{ text01 }}</strong></div>
+</div>
+<br>
+<table width="100%" style="line-height: 1.1">
+	<tr class="font-weight-bold">
+		<td colspan="3"><strong>[02] {{ _("text04") }}</strong> {{ doc.text04 or '&nbsp;' }}</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<table>
+				<tr>
+					<td class="no_padding" style="vertical-align: middle !important"><strong>[03]</strong> {{ _("text05") }}:</td>
+					<td class="no_padding" width="50px">
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{{ doc.text05[0] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[1] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[2] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[3] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[4] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[5] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[6] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[7] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[8] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[9] or '&nbsp;' }}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table class="table_tax">
+							<tr>
+								<td>{{ doc.text05[10] or '-' }}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{{ doc.text05[11] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[12] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[13] or '&nbsp;' }}</td>
+								<td>{{ doc.text05[14] or '&nbsp;' }}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<br>
+<table width="100%" style="line-height: 1.1">
+	<tr class="font-weight-bold">
+		<td colspan="3"><strong>[04] {{ _("text12") }}</strong>: {{ text12 or '' }}</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<table>
+				<tr>
+					<td class="no_padding" style="vertical-align: middle !important"><strong>[05]</strong> {{ _("text13") }}:</td>
+					<td class="no_padding" width="50px">
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{{ text13[0] or '&nbsp;' }}</td>
+								<td>{{ text13[1] or '&nbsp;' }}</td>
+								<td>{{ text13[2] or '&nbsp;' }}</td>
+								<td>{{ text13[3] or '&nbsp;' }}</td>
+								<td>{{ text13[4] or '&nbsp;' }}</td>
+								<td>{{ text13[5] or '&nbsp;' }}</td>
+								<td>{{ text13[6] or '&nbsp;' }}</td>
+								<td>{{ text13[7] or '&nbsp;' }}</td>
+								<td>{{ text13[8] or '&nbsp;' }}</td>
+								<td>{{ text13[9] or '&nbsp;' }}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table class="table_tax">
+							<tr>
+								<td>{{ text13[10] or '-' }}</td>
+							</tr>
+						</table>
+					</td>
+					<td class="no_padding">
+						<table border="1" class="table_tax">
+							<tr>
+								<td>{{ text13[11] or '&nbsp;' }}</td>
+								<td>{{ text13[12] or '&nbsp;' }}</td>
+								<td>{{ text13[13] or '&nbsp;' }}</td>
+								<td>{{ text13[14] or '&nbsp;' }}</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+<table width="100%">
+	<tr>
+		<td class="text-right"><i>{{ _("Don vi tien: dong Viet Nam") }}</i></td>
+	</tr>
+</table>
+
+<table class="table-bordered" width="100%">
+	<tr>
+		<th rowspan="2" class="text-center middle">{{ _("STT") }}</th>
+		<th colspan="2" class="text-center middle">{{ _("Hoa don, chung tu ban ra") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Ten nguoi mua") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Ma so thue nguoi mua") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Doanh so ban chua co thue") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Thue GTGT") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Ghi chu") }}</th>
+	</tr>
+	<tr>
+		<th class="text-center middle">{{ _("So hoa don") }}</th>
+		<th class="text-center middle">{{ _("Ngay, thang, nam lap hoa don") }}</th>
+	</tr>
+	<tr>
+		<td class="text-center">(1)</td>
+		<td class="text-center">(2)</td>
+		<td class="text-center">(3)</td>
+		<td class="text-center">(4)</td>
+		<td class="text-center">(5)</td>
+		<td class="text-center">(6)</td>
+		<td class="text-center">(7)</td>
+		<td class="text-center">(8)</td>
+	</tr>
+	<tr>
+		<td colspan="8"><em>1. {{ _("Hang hoa dich vu khong chiu thue gia tri gia tang (GTGT)") }}</em></td>
+	</tr>
+	<tr>
+		<td class="text-center">(1)</td>
+		<td class="text-center">(2)</td>
+		<td class="text-center">(3)</td>
+		<td class="text-center">(4)</td>
+		<td class="text-center">(5)</td>
+		<td class="text-center">(6)</td>
+		<td class="text-center">(7)</td>
+		<td class="text-center">(8)</td>
+	</tr>
+	<tr>
+		<td class="text-center">{{ _("Tong") }}</td>
+		<td class="text-center"></td>
+		<td class="text-center"></td>
+		<td class="text-center"></td>
+		<td class="text-center"></td>
+		<td class="text-center">99999</td>
+		<td class="text-center"></td>
+		<td class="text-center"></td>
+	</tr>
+</table>	
+
+</div>

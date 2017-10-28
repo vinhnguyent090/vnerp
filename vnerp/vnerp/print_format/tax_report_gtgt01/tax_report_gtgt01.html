@@ -32,7 +32,20 @@
 	.print-format{
 		padding: 0.2in;
 		line-height: 1.7;
+		max-width: 11.69in;
 	}
+	.print-preview{
+		max-width: 11.69in;
+	}
+	.page-portrait{
+		max-width: 8.3in;
+		margin:0 auto;
+	}
+	.page-landscape{
+		max-width: 11.69in;
+		margin:0 auto;
+	}
+	
 	.font-weight-bold{font-weight: bold;}
 	.print-format td.no_padding {padding:0 !important}
 	.print-format td.middle{ vertical-align: middle !important}
@@ -52,7 +65,10 @@
 		}
 	}
 </style>
+{% include "templates/print_format/tax_report_gtgt01_pl01_1.html" %}
+<div class="page-break"></div>
 
+<div class="page-portrait">
 <div class="text-center" style="float:left; width:100%; position:relative">
 	<div class="text-center tax_form">
 		{{ _("mau so") }}
@@ -61,19 +77,19 @@
 	<hr style="width: 30%;">
 	<h2>{{ _("to khai thue gia tri gia tang") }}</h2>
 	<span style="font-size:95%"><em>{{ _("danh cho theo phuong phap khau tru") }}</em></span>
-	<div><strong>{{ _("text01") }} {{ text01 }}</strong></div>
-	<div>{{ _("text02") }} [  {{ text02 or '&nbsp;' }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ _("text03") }} [ {{ text03 or '&nbsp;' }} ] </div>
+	<div><strong>[01] {{ _("text01") }} {{ text01 }}</strong></div>
+	<div>[02] {{ _("text02") }} [  {{ text02 or '&nbsp;' }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[03]{{ _("text03") }} [ {{ text03 or '&nbsp;' }} ] </div>
 </div>
 <br>
 <table width="100%" style="line-height: 1.1">
 	<tr class="font-weight-bold">
-		<td colspan="3">{{ _("text04") }}: {{ doc.text04 or '&nbsp;' }}</td>
+		<td colspan="3">[04]{{ _("text04") }}: {{ doc.text04 or '&nbsp;' }}</td>
 	</tr>
 	<tr>
 		<td colspan="3">
 			<table>
 				<tr>
-					<td class="no_padding" style="vertical-align: middle !important">{{ _("text05") }}:</td>
+					<td class="no_padding" style="vertical-align: middle !important"><strong>[05]</strong>{{ _("text05") }}:</td>
 					<td class="no_padding" width="50px">
 					</td>
 					<td class="no_padding">
@@ -114,28 +130,28 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">{{ _("text06") }}: {{ doc.text06 or '&nbsp;' }}</td>
+		<td colspan="3"><strong>[06]</strong> {{ _("text06") }}: {{ doc.text06 or '&nbsp;' }}</td>
 	</tr>
 	<tr>
-		<td colspan="2">{{ _("text07") }}: {{ doc.text07 or '&nbsp;' }}</td>
-		<td>{{ _("text08") }} {{ doc.text08 or '&nbsp;' }}</td>
+		<td colspan="2"><strong>[07]</strong> {{ _("text07") }}: {{ doc.text07 or '&nbsp;' }}</td>
+		<td><strong>[08]</strong> {{ _("text08") }} {{ doc.text08 or '&nbsp;' }}</td>
 	</tr>
 	<tr>
-		<td width="30%">{{ _("text09") }}: {{ doc.text09 or '&nbsp;' }}</td>
-		<td width="30%">{{ _("text10") }}: {{ doc.text10 or '&nbsp;' }}</td>
-		<td width="40%">{{ _("text11") }}: {{ doc.text11 or '&nbsp;' }}</td>
+		<td width="30%"><strong>[09]</strong> {{ _("text09") }}: {{ doc.text09 or '&nbsp;' }}</td>
+		<td width="30%"><strong>[10]</strong> {{ _("text10") }}: {{ doc.text10 or '&nbsp;' }}</td>
+		<td width="40%"><strong>[11]</strong> {{ _("text11") }}: {{ doc.text11 or '&nbsp;' }}</td>
 	</tr>
 </table>
 <br>
 <table width="100%" style="line-height: 1.1">
 	<tr class="font-weight-bold">
-		<td colspan="3">{{ _("text12") }}: {{ text12 or '' }}</td>
+		<td colspan="3">[12] {{ _("text12") }}: {{ text12 or '' }}</td>
 	</tr>
 	<tr>
 		<td colspan="3">
 			<table>
 				<tr>
-					<td class="no_padding" style="vertical-align: middle !important">{{ _("text13") }}:</td>
+					<td class="no_padding" style="vertical-align: middle !important"><strong>[13]</strong> {{ _("text13") }}:</td>
 					<td class="no_padding" width="50px">
 					</td>
 					<td class="no_padding">
@@ -176,19 +192,19 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3">{{ _("text14") }}: {{ text14 or '' }}</td>
+		<td colspan="3"><strong>[14]</strong> {{ _("text14") }}: {{ text14 or '' }}</td>
 	</tr>
 	<tr>
-		<td colspan="2">{{ _("text15") }}: {{ text15 or '' }}</td>
-		<td>{{ _("text16") }}: {{ text16 or '' }}</td>
+		<td colspan="2"><strong>[15]</strong> {{ _("text15") }}: {{ text15 or '' }}</td>
+		<td><strong>[16]</strong> {{ _("text16") }}: {{ text16 or '' }}</td>
 	</tr>
 	<tr>
-		<td width="30%">{{ _("text17") }}: {{ text17 or '' }}</td>
-		<td width="30%">{{ _("text18") }}: {{ text18 or '' }}</td>
-		<td width="40%">{{ _("text19") }}: {{ text19 or '' }}</td>
+		<td width="30%"><strong>[17]</strong> {{ _("text17") }}: {{ text17 or '' }}</td>
+		<td width="30%"><strong>[18]</strong> {{ _("text18") }}: {{ text18 or '' }}</td>
+		<td width="40%"><strong>[19]</strong> {{ _("text19") }}: {{ text19 or '' }}</td>
 	</tr>
 	<tr>
-		<td colspan="2">{{ _("text20") }} {{ text20 or '' }}</td>
+		<td colspan="2"><strong>[20]</strong> {{ _("text20") }} {{ text20 or '' }}</td>
 		<td>{{ _("Ngay") }}:</td>
 	</tr>
 </table>
@@ -461,6 +477,11 @@
 		</td>
 	</tr>
 </table>
+</div>
+<div class="page-break"></div>
+<br><br>
+{% include "templates/print_format/tax_report_gtgt01_pl01_1.html" %}
+
 <div id="header-html" class="hidden-pdf">
     <div id="variables" style="display:none;">
         <span id="margin-top">7mm</span>
@@ -469,3 +490,6 @@
     	<span id="margin-bottom">7mm</span>
     </div>
 </div>	
+
+
+

@@ -8,9 +8,7 @@ def get_data():
 			"module_name": "vnerp",
 			"color": "grey",
 			"icon": "octicon octicon-file-directory",
-			"label": _("vvv"),
-			"link": "List/Room",
-			"_doctype": "Room",
-			"type": "list"
+			"type": "module",
+			"label": _("VN Erp")
 		}
 	]

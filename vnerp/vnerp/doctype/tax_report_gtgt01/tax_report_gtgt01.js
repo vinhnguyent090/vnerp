@@ -10,6 +10,7 @@ cur_frm.add_fetch('company','city','text08');
 cur_frm.add_fetch('company','phone','text09');
 cur_frm.add_fetch('company','fax','text10');
 cur_frm.add_fetch('company','email','text11');
+cur_frm.add_fetch('company','person_sign','person_sign');
 
 frappe.ui.form.on('Tax Report GTGT01', {
 	refresh: function(frm) {
@@ -18,7 +19,83 @@ frappe.ui.form.on('Tax Report GTGT01', {
 			var ymd = frm.doc.posting_date;
 			cur_frm.set_value('year', ymd.substring(0,4));
 		}
+		cur_frm.add_custom_button(__('Export Xml'), function() {
+			var period_type = frm.doc.period_type;
+			var period_num = frm.doc.period_num;
+			var year = frm.doc.year;
+			var company = frm.doc.company;
+
+			var args = {
+				cmd: 'vnerp.vnerp.doctype.tax_report_gtgt01.tax_report_gtgt01.get_xml',
+				name: frm.doc.name,
+			}
+
+			open_url_post(frappe.request.url, args, 1);
+		});
     },
+	first_time: function(frm){
+		if(frm.doc.first_time==1){
+			cur_frm.set_value('update_version', 0);
+		}
+	},
+	getpl01_1: function(frm){
+		frm.events.getpl01_1_x(frm, '33311001', 'pl01_1_1');
+		frm.events.getpl01_1_x(frm, '33311002', 'pl01_1_2');
+		frm.events.getpl01_1_x(frm, '33311003', 'pl01_1_3');
+		frm.events.getpl01_1_x(frm, '33311004', 'pl01_1_4');
+	},
+	clearpl01_1: function(frm){
+		frm.clear_table('pl01_1_1');
+		frm.clear_table('pl01_1_2');
+		frm.clear_table('pl01_1_3');
+		frm.clear_table('pl01_1_4');
+
+		refresh_field('pl01_1_1');
+		refresh_field('pl01_1_2');
+		refresh_field('pl01_1_3');
+		refresh_field('pl01_1_4');
+	},
+	getpl01_1_x: function(frm, account, field){
+		
+		frm.clear_table(field);
+
+		var period_type = frm.doc.period_type;
+		var period_num = frm.doc.period_num;
+		var year = frm.doc.year;
+		var company = frm.doc.company;
+
+		return  frappe.call({
+			method: 'vnerp.vnerp.doctype.tax_report_gtgt01.tax_report_gtgt01.getpl01_1',
+			args: {
+				filters:{
+					company: company,
+					period_type: period_type,
+					period_num: period_num,
+					year: year.toString(),
+					account_head: account,
+				}
+			},
+			callback: function(r, rt) {
+				if(r.message) {
+					$.each(r.message, function(i, d) {
+						var c = frm.add_child(field);
+						c.reference_doctype = d.reference_doctype;
+						c.reference_name = d.reference_name;
+						c.reference_date = d.reference_date;
+						c.party_type = d.party_type;
+						c.party_name = d.party_name;
+						c.tax_id = d.tax_id;
+						c.net_total = d.net_total;
+						c.tax_amount = d.tax_amount;
+						c.total_amount = d.total_amount;
+						c.account_head = d.account_head;
+					});
+					refresh_field(field)
+				}
+			}
+		});
+
+	},
 	period_type: function(frm, cdt, cdn){
         countTaxReportGTGT01(frm);
     },
@@ -89,6 +166,10 @@ frappe.ui.form.on('Tax Report GTGT01', {
 
 });
 
+var get = function(frm){
+
+}
+
 var set0 = function(frm){
 	cur_frm.set_value('num22', 0);
 	cur_frm.set_value('num23', 0);
@@ -114,6 +195,11 @@ var set0 = function(frm){
 	cur_frm.set_value('num41', 0);
 	cur_frm.set_value('num42', 0);
 	cur_frm.set_value('num43', 0);
+
+	frm.events.clearpl01_1(frm);
+
+	cur_frm.refresh();
+
 }
 
 var countTaxReportGTGT01 = function(frm){
@@ -124,6 +210,7 @@ var countTaxReportGTGT01 = function(frm){
 		return;
 	}
 	countNum23(frm);
+	frm.events.getpl01_1(frm);
 }
 
 var updateGTGT01 = function(frm){
@@ -181,6 +268,8 @@ var updateGTGT01 = function(frm){
 	cur_frm.set_value('num40', num40);
 	cur_frm.set_value('num41', num41);
 	cur_frm.set_value('num43', num43);
+
+	cur_frm.refresh();
 
 }
 var countNum23 = function(frm){

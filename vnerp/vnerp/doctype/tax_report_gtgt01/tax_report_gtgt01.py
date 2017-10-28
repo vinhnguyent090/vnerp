@@ -5,12 +5,95 @@
 from __future__ import unicode_literals
 import frappe, json
 from frappe.model.document import Document
+from erpnext.accounts.utils import get_outstanding_invoices
 from frappe.utils import get_first_day, get_last_day, add_to_date, nowdate, getdate, add_days, add_months
+from werkzeug.wrappers import Response
 
 class TaxReportGTGT01(Document):
 	pass
 
 
+@frappe.whitelist()
+def get_xml(name):
+
+	doc = frappe.get_doc("Tax Report GTGT01", name)
+	if not doc.has_permission("read"):
+		raise frappe.PermissionError
+	
+	if(doc.period_type=="Month"):
+		#convert from_date
+		from_date = get_first_day(str(doc.period_num) + '-' + str(doc.year))
+		doc.to_date =  get_last_day(doc.period_num + '-' + doc.year)
+		#frappe.msgprint(doc.from_date)
+	
+	if(doc.period_type=="Quarter"):
+		#convert from_date
+		period_num = "1"
+		if(doc.period_num=="2"):
+			period_num = "4"
+		if(doc.period_num=="3"):
+			period_num = "7"
+		if(doc.period_num=="4"):
+			period_num = "10"
+			
+		doc.from_date = get_first_day(str(period_num) + '-' + str(doc.year))
+		doc.to_date = add_months(doc.from_date, 3)
+		doc.to_date = add_days(doc.to_date, -1)
+
+	response = Response()
+	response.mimetype = 'text/xml'
+	response.charset = 'utf-8'
+	response.headers[b"Content-Disposition"] = ("attachment; filename=\"%s.xml\"" % "gtgt01").encode("utf-8")
+
+
+	response.data =  frappe.render_template(
+		"templates/print_format/tax_report_gtgt01_pl01.xml", dict(doc=doc)
+	)
+
+	return response
+
+@frappe.whitelist()
+def getpl01_1(filters):
+	filters = json.loads(filters)
+
+	if(filters["period_type"]=="Month"):
+		#convert from_date
+		from_date = get_first_day(filters["period_num"] + '-' + filters["year"])
+		filters["to_date"] =  get_last_day(filters["period_num"] + '-' + filters["year"])
+		#frappe.msgprint(filters["from_date)
+	
+	if(filters["period_type"]=="Quarter"):
+		#convert from_date
+		period_num = "1"
+		if(filters["period_num"]=="2"):
+			period_num = "4"
+		if(filters["period_num"]=="3"):
+			period_num = "7"
+		if(filters["period_num"]=="4"):
+			period_num = "10"
+			
+		filters["from_date"] = get_first_day(period_num + '-' + filters["year"])
+		filters["to_date"] = add_months(filters["from_date"], 3)
+		filters["to_date"] = add_days(filters["to_date"], -1)
+	
+	conditions = get_conditions(filters)
+
+	
+	query = """SELECT 'Sales Invoice' as reference_doctype, si.name as reference_name,
+		si.posting_date as reference_date, 'Customer' as party_type, si.customer_name as party_name,
+		si.tax_id as tax_id, si.base_net_total as net_total, si_tax.base_tax_amount as tax_amount,
+		si.base_grand_total as total_amount, si_tax.account_head
+		FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax
+		WHERE si.docstatus = 1 AND si_tax.parent = si.name AND si_tax.account_head LIKE '%s%%'
+		%s
+		""" %(filters["account_head"], conditions)
+
+	
+	result = frappe.db.sql(query, as_dict=True)
+
+	return  result
+
+	
 @frappe.whitelist()
 def get_total_pi(filters):
 

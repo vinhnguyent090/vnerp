@@ -1,0 +1,120 @@
+{%- if doc.period_type == "Quarter" -%}
+	{% set kieuKy = 'Q' -%}
+{%- endif -%}
+{%- if doc.period_type == "Month" -%}
+	{%- set kieuKy = 'T' -%}
+{%- endif -%}
+{%- set soLan = doc.update_version -%}
+{%- set kyKKhai = "{0}/{1}".format(doc.period_num, doc.year) -%}
+{%- set kyKKhaiTuNgay = frappe.utils.formatdate(doc.from_date, "dd/MM/yyyy") -%}
+{%- set kyKKhaiDenNgay = frappe.utils.formatdate(doc.to_date, "dd/MM/yyyy") -%}
+{%- set maCQTNoiNop = "70133" -%}
+{%- set tenCQTNoiNop = "Chi cục Thuế Quận Thủ Đức" -%}
+{%- set ngayLapTKhai = frappe.utils.formatdate(doc.posting_date, "yyyy-MM-dd") -%}
+{%- set nguoiKy = doc.person_sign -%}
+{%- set ngayKy = frappe.utils.formatdate(doc.posting_date, "yyyy-MM-dd") -%}
+{%- set nganhNgheKD = _(doc.domain) -%}
+{%- set mst = doc.text05 -%}
+{%- set tenNNT = doc.text04 -%}
+{%- set dchiNNT = doc.text06 -%}
+{%- set phuongXa = "" -%}
+{%- set maHuyenNNT = "" -%}
+{%- set tenHuyenNNT = doc.text07 -%}
+{%- set maTinhNNT = "" -%}
+{%- set tenTinhNNT = doc.text08 -%}
+{%- set dthoaiNNT = doc.text09 -%}
+{%- set faxNNT = doc.text10 -%}
+{%- set emailNNT = doc.text11 -%}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<HSoThueDTu xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kekhaithue.gdt.gov.vn/TKhaiThue">
+	<HSoKhaiThue id="ID_18">
+		<TTinChung>
+			<TTinDVu>
+				<maDVu>HTKK</maDVu>
+				<tenDVu>HTKK</tenDVu>
+				<pbanDVu>3.3.7</pbanDVu>
+				<ttinNhaCCapDVu></ttinNhaCCapDVu>
+			</TTinDVu>
+			<TTinTKhaiThue>
+				<TKhaiThue>
+					<maTKhai>01</maTKhai>
+					<tenTKhai>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG (Mẫu số 01/GTGT)</tenTKhai>
+					<moTaBMau>(Ban hành kèm theo Thông tư số 119/2014/TT-BTC ngày 25/8/2014 của Bộ Tài chính)</moTaBMau>
+					<pbanTKhaiXML>2.0.7</pbanTKhaiXML>
+					<loaiTKhai>C</loaiTKhai>
+					<soLan>{{ soLan }}</soLan>
+					<KyKKhaiThue>
+						<kieuKy>{{ kieuKy }}</kieuKy>
+						<kyKKhai>{{ kyKKhai }}</kyKKhai>
+						<kyKKhaiTuNgay>{{ kyKKhaiTuNgay }}</kyKKhaiTuNgay>
+						<kyKKhaiDenNgay>{{ kyKKhaiDenNgay }}</kyKKhaiDenNgay>
+						<kyKKhaiTuThang></kyKKhaiTuThang>
+						<kyKKhaiDenThang></kyKKhaiDenThang>
+					</KyKKhaiThue>
+					<maCQTNoiNop>{{ maCQTNoiNop }}</maCQTNoiNop>
+					<tenCQTNoiNop>{{ tenCQTNoiNop }}</tenCQTNoiNop>
+					<ngayLapTKhai>{{ ngayLapTKhai }}</ngayLapTKhai>
+					<GiaHan>
+						<maLyDoGiaHan></maLyDoGiaHan>
+						<lyDoGiaHan></lyDoGiaHan>
+					</GiaHan>
+					<nguoiKy>{{nguoiKy }}</nguoiKy>
+					<ngayKy>{{ ngayKy }}</ngayKy>
+					<nganhNgheKD>{{ nganhNgheKD }}</nganhNgheKD>
+				</TKhaiThue>
+				<NNT>
+					<mst>{{mst}}</mst>
+					<tenNNT>{{tenNNT}}</tenNNT>
+					<dchiNNT>{{dchiNNT}}</dchiNNT>
+					<phuongXa>{{phuongXa}}</phuongXa>
+					<maHuyenNNT>{{maHuyenNNT}}</maHuyenNNT>
+					<tenHuyenNNT>{{tenHuyenNNT}}</tenHuyenNNT>
+					<maTinhNNT>{{maTinhNNT}}</maTinhNNT>
+					<tenTinhNNT>{{tenTinhNNT}}</tenTinhNNT>
+					<dthoaiNNT>{{dthoaiNNT}}</dthoaiNNT>
+					<faxNNT>{{faxNNT}}</faxNNT>
+					<emailNNT>{{emailNNT}}</emailNNT>
+				</NNT>
+			</TTinTKhaiThue>
+		</TTinChung>
+		<CTieuTKhaiChinh>
+			<tieuMucHachToan>1701</tieuMucHachToan>
+			<ct21>{{ doc.num21}}</ct21>
+			<ct22>{{'{:0.0f}'.format(doc.num22)}}</ct22>
+			<GiaTriVaThueGTGTHHDVMuaVao>
+				<ct23>{{'{:0.0f}'.format(doc.num23)}}</ct23>
+				<ct24>{{'{:0.0f}'.format(doc.num24)}}</ct24>
+			</GiaTriVaThueGTGTHHDVMuaVao>
+			<ct25>{{'{:0.0f}'.format(doc.num25)}}</ct25>
+			<ct26>{{'{:0.0f}'.format(doc.num26)}}</ct26>
+			<HHDVBRaChiuThueGTGT>
+				<ct27>{{'{:0.0f}'.format(doc.num27)}}</ct27>
+				<ct28>{{'{:0.0f}'.format(doc.num28)}}</ct28>
+			</HHDVBRaChiuThueGTGT>
+			<ct29>{{'{:0.0f}'.format(doc.num29)}}</ct29>
+			<HHDVBRaChiuTSuat5>
+				<ct30>{{'{:0.0f}'.format(doc.num30)}}</ct30>
+				<ct31>{{'{:0.0f}'.format(doc.num31)}}</ct31>
+			</HHDVBRaChiuTSuat5>
+			<HHDVBRaChiuTSuat10>
+				<ct32>{{'{:0.0f}'.format(doc.num32)}}</ct32>
+				<ct33>{{'{:0.0f}'.format(doc.num33)}}</ct33>
+			</HHDVBRaChiuTSuat10>
+			<TongDThuVaThueGTGTHHDVBRa>
+				<ct34>{{'{:0.0f}'.format(doc.num34)}}</ct34>
+				<ct35>{{'{:0.0f}'.format(doc.num35)}}</ct35>
+			</TongDThuVaThueGTGTHHDVBRa>
+			<ct36>{{'{:0.0f}'.format(doc.num36)}}</ct36>
+			<ct37>{{'{:0.0f}'.format(doc.num37)}}</ct37>
+			<ct38>{{'{:0.0f}'.format(doc.num38)}}</ct38>
+			<ct39>{{'{:0.0f}'.format(doc.num39)}}</ct39>
+			<ct40a>{{'{:0.0f}'.format(doc.num40a)}}</ct40a>
+			<ct40b>{{'{:0.0f}'.format(doc.num40b)}}</ct40b>
+			<ct40>{{'{:0.0f}'.format(doc.num40)}}</ct40>
+			<ct41>{{'{:0.0f}'.format(doc.num41)}}</ct41>
+			<ct42>{{'{:0.0f}'.format(doc.num42)}}</ct42>
+			<ct43>{{'{:0.0f}'.format(doc.num43)}}</ct43>
+		</CTieuTKhaiChinh>
+	</HSoKhaiThue>
+</HSoThueDTu>
