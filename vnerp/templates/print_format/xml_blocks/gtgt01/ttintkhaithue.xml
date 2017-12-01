@@ -1,0 +1,41 @@
+<TTinTKhaiThue>
+	<TKhaiThue>
+		<maTKhai>01</maTKhai>
+		<tenTKhai>TỜ KHAI THUẾ GIÁ TRỊ GIA TĂNG (Mẫu số 01/GTGT)</tenTKhai>
+		<moTaBMau>(Ban hành kèm theo Thông tư số 119/2014/TT-BTC ngày 25/8/2014 của Bộ Tài chính)</moTaBMau>
+		<pbanTKhaiXML>2.0.7</pbanTKhaiXML>
+		<loaiTKhai>C</loaiTKhai>
+		<soLan>{{ soLan }}</soLan>
+		<KyKKhaiThue>
+			<kieuKy>{{ kieuKy }}</kieuKy>
+			<kyKKhai>{{ kyKKhai }}</kyKKhai>
+			<kyKKhaiTuNgay>{{ kyKKhaiTuNgay }}</kyKKhaiTuNgay>
+			<kyKKhaiDenNgay>{{ kyKKhaiDenNgay }}</kyKKhaiDenNgay>
+			<kyKKhaiTuThang></kyKKhaiTuThang>
+			<kyKKhaiDenThang></kyKKhaiDenThang>
+		</KyKKhaiThue>
+		<maCQTNoiNop>{{ maCQTNoiNop }}</maCQTNoiNop>
+		<tenCQTNoiNop>{{ tenCQTNoiNop }}</tenCQTNoiNop>
+		<ngayLapTKhai>{{ ngayLapTKhai }}</ngayLapTKhai>
+		<GiaHan>
+			<maLyDoGiaHan></maLyDoGiaHan>
+			<lyDoGiaHan></lyDoGiaHan>
+		</GiaHan>
+		<nguoiKy>{{nguoiKy }}</nguoiKy>
+		<ngayKy>{{ ngayKy }}</ngayKy>
+		<nganhNgheKD>{{ nganhNgheKD }}</nganhNgheKD>
+	</TKhaiThue>
+	<NNT>
+		<mst>{{mst}}</mst>
+		<tenNNT>{{tenNNT}}</tenNNT>
+		<dchiNNT>{{dchiNNT}}</dchiNNT>
+		<phuongXa>{{phuongXa}}</phuongXa>
+		<maHuyenNNT>{{maHuyenNNT}}</maHuyenNNT>
+		<tenHuyenNNT>{{tenHuyenNNT}}</tenHuyenNNT>
+		<maTinhNNT>{{maTinhNNT}}</maTinhNNT>
+		<tenTinhNNT>{{tenTinhNNT}}</tenTinhNNT>
+		<dthoaiNNT>{{dthoaiNNT}}</dthoaiNNT>
+		<faxNNT>{{faxNNT}}</faxNNT>
+		<emailNNT>{{emailNNT}}</emailNNT>
+	</NNT>
+</TTinTKhaiThue>

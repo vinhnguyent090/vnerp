@@ -10,7 +10,72 @@ from frappe.utils import get_first_day, get_last_day, add_to_date, nowdate, getd
 from werkzeug.wrappers import Response
 
 class TaxReportGTGT01(Document):
-	pass
+	def validate(self):
+		""" Count total pl01_1 """
+		
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_1_1:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_1_1_net_total = net_total
+		self.pl01_1_1_tax_amount = tax_amount
+
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_1_2:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_1_2_net_total = net_total
+		self.pl01_1_2_tax_amount = tax_amount
+
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_1_3:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_1_3_net_total = net_total
+		self.pl01_1_3_tax_amount = tax_amount
+
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_1_4:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_1_4_net_total = net_total
+		self.pl01_1_4_tax_amount = tax_amount
+
+		self.pl01_1_net_total = self.pl01_1_1_net_total + self.pl01_1_2_net_total + self.pl01_1_3_net_total + self.pl01_1_4_net_total
+		self.pl01_1_tax_amount = self.pl01_1_1_tax_amount + self.pl01_1_2_tax_amount + self.pl01_1_3_tax_amount + self.pl01_1_4_tax_amount
+
+		""" Count total pl01_2 """
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_2_1:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_2_1_net_total = net_total
+		self.pl01_2_1_tax_amount = tax_amount
+
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_2_2:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_2_2_net_total = net_total
+		self.pl01_2_2_tax_amount = tax_amount
+
+		net_total = 0
+		tax_amount = 0
+		for row in self.pl01_2_3:
+			net_total += row.net_total
+			tax_amount += row.tax_amount
+		self.pl01_2_3_net_total = net_total
+		self.pl01_2_3_tax_amount = tax_amount
+
+		self.pl01_2_net_total = self.pl01_2_1_net_total + self.pl01_2_2_net_total + self.pl01_2_3_net_total
+		self.pl01_2_tax_amount = self.pl01_2_1_tax_amount + self.pl01_2_2_tax_amount + self.pl01_2_3_tax_amount
+
 
 
 @frappe.whitelist()
@@ -43,11 +108,11 @@ def get_xml(name):
 	response = Response()
 	response.mimetype = 'text/xml'
 	response.charset = 'utf-8'
-	response.headers[b"Content-Disposition"] = ("attachment; filename=\"%s.xml\"" % "gtgt01").encode("utf-8")
+	# response.headers[b"Content-Disposition"] = ("attachment; filename=\"%s.xml\"" % "gtgt01").encode("utf-8")
 
 
 	response.data =  frappe.render_template(
-		"templates/print_format/tax_report_gtgt01_pl01.xml", dict(doc=doc)
+		"templates/print_format/tax_report_gtgt01.xml", dict(doc=doc)
 	)
 
 	return response

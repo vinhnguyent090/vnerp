@@ -71,10 +71,64 @@ DocType:Tax Report GTGT01,ngay {0} thang {1} nam {2},"Ngày {0} tháng {1} năm 
 DocType:Tax Report GTGT01,mau so pl01-1,"Mẫu số: <strong>01-1/GTGT</strong> <br>(Ban hàng kèm theo Thông tư <br>28/2011/TT-BTC ngày <br>28/2/2011 của Bộ Tài chính)"
 DocType:Tax Report GTGT01,tieu de pl01-1,"BẢNG KÊ HOÁ ĐƠN, CHỨNG TỪ HÀNG HOÁ, DỊCH VỤ BÁN RA"
 DocType:Tax Report GTGT01,kem theo to khai thue GTGT 01,"(Kèm theo tờ khai thuế GTGT mẫu số 01/GTGT ngày.tháng.năm.........)"
-DocType:Tax Report GTGT01,"Hang hoa dich vu khong chiu thue gia tri gia tang (GTGT)","Hàng hóa, dịch vụ không chịu thuế gia tri gia tang GTGT"
+DocType:Tax Report GTGT01,"Hang hoa dich vu khong chiu thue gia tri gia tang (GTGT)","Hàng hóa, dịch vụ không chịu thuế giá trị gia tăng (GTGT)"
+DocType:Tax Report GTGT01,"Hang hoa dich vu chiu thue suat thue GTGT 0%","Hàng hóa, dịch vụ chịu thuế suất thuế GTGT 0%"
+DocType:Tax Report GTGT01,"Hang hoa dich vu chiu thue suat thue GTGT 5%","Hàng hóa, dịch vụ chịu thuế suất thuế GTGT 5%"
+DocType:Tax Report GTGT01,"Hang hoa dich vu chiu thue suat thue GTGT 10%","Hàng hóa, dịch vụ chịu thuế suất thuế GTGT 10%"
+
+DocType:Tax Report GTGT01,"Hoa don, chung tu ban ra","Hóa đơn, chứng từ bán ra"
+DocType:Tax Report GTGT01,"Ten nguoi mua","Tên người mua"
+DocType:Tax Report GTGT01,"Ma so thue nguoi mua","Mã số thuế người mua"
+DocType:Tax Report GTGT01,"Doanh thu chua co thue GTGT","Doanh thu chưa có thuế GTGT"
+DocType:Tax Report GTGT01,"Ghi chu","Ghi chú"
+DocType:Tax Report GTGT01,"So hoa don","Số hóa đơn"
+DocType:Tax Report GTGT01,"Ngay, thang, nam lap hoa don","Ngày, tháng,<br>năm lập hóa đơn"
+DocType:Tax Report GTGT01,"Tong doanh thu hang hoa, dich vu ban ra chiu thue GTGT","Tổng doanh thu hàng hóa, dịch vụ bán ra chịu thuế GTGT"
+DocType:Tax Report GTGT01,"Tong so thue GTGT cua hang hoa, dich vu ban ra","Tổng số thuế GTGT của hàng hóa, dịch vụ bán ra"
+
+DocType:Tax Report GTGT01,"html_text_pl01_2_1","1. Hàng hóa, dịch vụ dùng riêng cho SXKD chịu thuế GTGT và sử dụng cho các hoạt động cung cấp hàng hóa, dịch vụ không kê khai, nộp thuế GTGT đủ điều kiện khấu trừ thuế"
+DocType:Tax Report GTGT01,"pl01_2_1_net_total","Tổng giá trị HHDV mua vào chưa có thuế"
+DocType:Tax Report GTGT01,"pl01_2_1_tax_amount","Tổng thuế GTGT đủ điều kiện khấu trừ thuế"
+DocType:Tax Report GTGT01,"html_text_pl01_2_2","2. Hàng hóa, dịch vụ dùng chung cho SXKD chịu thuế GTGT và không chịu thuế đủ điều kiện khấu trừ thuế"
+DocType:Tax Report GTGT01,"pl01_2_2_net_total","Tổng giá trị HHDV mua vào chưa có thuế"
+DocType:Tax Report GTGT01,"pl01_2_2_tax_amount","Tổng thuế GTGT đủ điều kiện khấu trừ thuế"
+DocType:Tax Report GTGT01,"html_text_pl01_2_3","3. Hàng hóa, dịch vụ dùng cho dự án đầu tư đủ điều kiện được khấu trừ thuế(*)"
+DocType:Tax Report GTGT01,"pl01_2_3_net_total","Tổng giá trị HHDV mua vào chưa có thuế"
+DocType:Tax Report GTGT01,"pl01_2_3_tax_amount","Tổng thuế GTGT đủ điều kiện khấu trừ thuế"
+DocType:Tax Report GTGT01,"pl01_2_net_total","Tổng giá trị HHDV mua vào chưa có thuế"
+DocType:Tax Report GTGT01,"pl01_2_tax_amount","Tổng thuế GTGT đủ điều kiện khấu trừ thuế"
+
+
+DocType:Tax Report GTGT01,"mau so pl01-2","Mẫu số: <strong>01-2/GTGT</strong> <br>(Ban hàng kèm theo Thông tư <br>số 119/2014/TT-BTC ngày <br>25/8/2014 của Bộ Tài chính)"
+DocType:Tax Report GTGT01,"tieu de pl01-2","BẢNG KÊ HOÁ ĐƠN, CHỨNG TỪ HÀNG HOÁ, DỊCH VỤ MUA VÀO"
+
+DocType:Tax Report GTGT01,"Hoa don, chung tu, bien lai nop thue","Hoá đơn, chứng từ, biên lai nộp thuế"
+DocType:Tax Report GTGT01,"Ten nguoi ban","Tên người bán"
+DocType:Tax Report GTGT01,"Ma so thue nguoi ban","Mã số thuế người bán"
+DocType:Tax Report GTGT01,"Gia tri HHDV mua vào chua co thue","Giá trị HHDV<br>mua vào chưa có <br>thuế"
+DocType:Tax Report GTGT01,"Thue GTGT du dieu kien khau tru thue","Thuế GTGT<br>đủ điều kiện<br>khấu trừ thuế"
+DocType:Tax Report GTGT01,"Tong gia tri HHDV mua vao phuc vu SXKD được khau tru thue GTGT","Tổng giá trị HHDV mua vào phục vụ SXKD được khấu trừ thuế GTGT"
+DocType:Tax Report GTGT01,"Tong so thue GTGT cua hang hoa dich vu mua vao","Tổng số thuế GTGT của hàng hoá, dịch vụ mua vào"
+DocType:Tax Report GTGT01,"Ghi chu pl01-2 1","(*) Tổng hợp theo từng dự án đầu tư thuộc trường hợp được hoàn thuế GTGT."
+DocType:Tax Report GTGT01,"Ghi chu pl01-2 2","(**) Tổng giá trị HHDV mua vào phục vụ SXKD được khấu trừ thuế GTGT là tổng cộng số liệu tại cột 6 của dòng tổng của các chỉ tiêu 1, 2."
+DocType:Tax Report GTGT01,"Ghi chu pl01-2 3","(***) Tổng số thuế GTGT của HHDV mua vào đủ điều kiện được khấu trừ là tổng cộng số liệu tại cột 7 của dòng tổng của các chỉ tiêu 1, 2."
+DocType:Tax Report GTGT01,"Ghi chu pl01-2 4","- GTGT: giá trị gia tăng."
+DocType:Tax Report GTGT01,"Ghi chu pl01-2 5","- SXKD: sản xuất kinh doanh."
+DocType:Tax Report GTGT01,"Ghi chu pl01-2 6","- HHDV: hàng hóa dịch vụ."
+DocType:Tax Report GTGT01,"Ghi chu pl01-1 1","(*) Tổng doanh thu hàng hóa, dịch vụ bán ra chịu thuế GTGT là tổng cộng số liệu tại cột 6 của dòng tổng của các chỉ tiêu 2, 3, 4."
+DocType:Tax Report GTGT01,"Ghi chu pl01-1 2","(**) Tổng số thuế GTGT của hàng hóa, dịch vụ bán ra là tổng cộng số liệu tại cột 7 của dòng tổng của các chỉ tiêu 2, 3, 4."
+DocType:Tax Report GTGT01,"",""
 
 
 
+
+
+DocType:Tax Report GTGT01,Quarter,Quý
+DocType:Tax Report GTGT01,Month,Tháng
+DocType:Tax Report GTGT01,Year,Năm
+DocType:Tax Report GTGT01,Company,Công ty
+DocType:Tax Report GTGT01,Date,Ngày
+DocType:Tax Report GTGT01,Tong,Tổng
 DocType:Tax Report GTGT01,Ngay,Ngày
 DocType:Tax Report GTGT01,Don vi tien: dong Viet Nam,Đơn vị tiền: đồng Việt Nam
 

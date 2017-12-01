@@ -2,9 +2,9 @@
 
 <div class="text-center" style="float:left; width:100%; position:relative">
 	<div class="text-center tax_form">
-		{{ _("mau so pl01-1") }}
+		{{ _("mau so pl01-2") }}
 	</div>
-	<h2>{{ _("tieu de pl01-1") }}</h2>
+	<h2>{{ _("tieu de pl01-2") }}</h2>
 	<span style="font-size:95%"><em>{{ _("kem theo to khai thue GTGT 01") }}</em></span>
 	<div><strong><strong>[01]</strong> {{ _("text01") }} {{ text01 }}</strong></div>
 </div>
@@ -118,11 +118,11 @@
 <table class="table-bordered" width="100%">
 	<tr>
 		<th rowspan="2" class="text-center middle">{{ _("STT") }}</th>
-		<th colspan="2" class="text-center middle">{{ _("Hoa don, chung tu ban ra") }}</th>
-		<th rowspan="2" class="text-center middle">{{ _("Ten nguoi mua") }}</th>
-		<th rowspan="2" class="text-center middle">{{ _("Ma so thue nguoi mua") }}</th>
-		<th rowspan="2" class="text-center middle">{{ _("Doanh thu chua co thue GTGT") }}</th>
-		<th rowspan="2" class="text-center middle">{{ _("Thue GTGT") }}</th>
+		<th colspan="2" class="text-center middle">{{ _("Hoa don, chung tu, bien lai nop thue") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Ten nguoi ban") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Ma so thue nguoi ban") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Gia tri HHDV mua vào chua co thue") }}</th>
+		<th rowspan="2" class="text-center middle">{{ _("Thue GTGT du dieu kien khau tru thue") }}</th>
 		<th rowspan="2" class="text-center middle">{{ _("Ghi chu") }}</th>
 	</tr>
 	<tr>
@@ -140,9 +140,9 @@
 		<td class="text-center">(8)</td>
 	</tr>
 	<tr>
-		<td colspan="8" class="font-weight-bold"><em>1. {{ _("Hang hoa dich vu khong chiu thue gia tri gia tang (GTGT)") }}</em></td>
+		<td colspan="8" class="font-weight-bold"><em>{{ _("html_text_pl01_2_1") }}</em></td>
 	</tr>
-	{%- for row in doc.pl01_1_1 -%}
+	{%- for row in doc.pl01_2_1 -%}
 	<tr>
 		<td class="text-center">{{ row.idx }}</td>
 		<td class="text-center">{{ row.reference_name or '&nbsp;' }}</td>
@@ -161,40 +161,14 @@
 		<td class="text-center"></td>
 		<td class="text-center"></td>
 		<td class="text-center"></td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_1_net_total") }}</td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_1_tax_amount") }}</td>
+		<td class="text-right">{{ doc.get_formatted("pl01_2_1_net_total") }}</td>
+		<td class="text-right">{{ doc.get_formatted("pl01_2_1_tax_amount") }}</td>
 		<td class="text-center"></td>
 	</tr>
 	<tr>
-		<td colspan="8" class="font-weight-bold"><em>2. {{ _("Hang hoa dich vu chiu thue suat thue GTGT 0%") }}</em></td>
+		<td colspan="8" class="font-weight-bold"><em>{{ _("html_text_pl01_2_2") }}</em></td>
 	</tr>
-	{%- for row in doc.pl01_1_2 -%}
-	<tr>
-		<td class="text-center">{{ row.idx }}</td>
-		<td class="text-center">{{ row.reference_name or '&nbsp;' }}</td>
-		<td class="text-center">{{ row.get_formatted("reference_date") }}</td>
-		<td>{{ row.party_name or '&nbsp;' }}</td>
-		<td class="text-center">{{ row.tax_id or '&nbsp;' }}</td>
-		<td class="text-right">{{ row.get_formatted("net_total") }}</td>
-		<td class="text-right">{{ row.get_formatted("tax_amount") }}</td>
-		<td class="text-center">{{ row.note or '&nbsp;' }}</td>
-	</tr>
-	{%- endfor -%}
-
-	<tr class="font-weight-bold">
-		<td class="text-center">{{ _("Tong") }}</td>
-		<td class="text-center"></td>
-		<td class="text-center"></td>
-		<td class="text-center"></td>
-		<td class="text-center"></td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_2_net_total") }}</td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_2_tax_amount") }}</td>
-		<td class="text-center"></td>
-	</tr>
-	<tr>
-		<td colspan="8" class="font-weight-bold"><em>3. {{ _("Hang hoa dich vu chiu thue suat thue GTGT 5%") }}</em></td>
-	</tr>
-	{%- for row in doc.pl01_1_3 -%}
+	{%- for row in doc.pl01_2_2 -%}
 	<tr>
 		<td class="text-center">{{ row.idx }}</td>
 		<td class="text-center">{{ row.reference_name or '&nbsp;' }}</td>
@@ -213,14 +187,14 @@
 		<td class="text-center"></td>
 		<td class="text-center"></td>
 		<td class="text-center"></td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_3_net_total") }}</td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_3_tax_amount") }}</td>
+		<td class="text-right">{{ doc.get_formatted("pl01_2_2_net_total") }}</td>
+		<td class="text-right">{{ doc.get_formatted("pl01_2_2_tax_amount") }}</td>
 		<td class="text-center"></td>
 	</tr>
 	<tr>
-		<td colspan="8" class="font-weight-bold"><em>4. {{ _("Hang hoa dich vu chiu thue suat thue GTGT 10%") }}</em></td>
+		<td colspan="8" class="font-weight-bold"><em>{{ _("html_text_pl01_2_3") }}</em></td>
 	</tr>
-	{%- for row in doc.pl01_1_4 -%}
+	{%- for row in doc.pl01_2_3 -%}
 	<tr>
 		<td class="text-center">{{ row.idx }}</td>
 		<td class="text-center">{{ row.reference_name or '&nbsp;' }}</td>
@@ -239,21 +213,21 @@
 		<td class="text-center"></td>
 		<td class="text-center"></td>
 		<td class="text-center"></td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_4_net_total") }}</td>
-		<td class="text-right">{{ doc.get_formatted("pl01_1_4_tax_amount") }}</td>
+		<td class="text-right">{{ doc.get_formatted("pl01_2_3_net_total") }}</td>
+		<td class="text-right">{{ doc.get_formatted("pl01_2_3_tax_amount") }}</td>
 		<td class="text-center"></td>
 	</tr>
 </table>	
 <br>
 <table class="font-weight-bold" style="font-size: 1.2em">
 	<tr>
-		<td>{{ _("Tong doanh thu hang hoa, dich vu ban ra chiu thue GTGT") }} (*):</td>
-		<td class="text-right table-bordered">&nbsp;&nbsp;&nbsp;{{ doc.get_formatted("pl01_1_net_total") }}</td>
+		<td>{{ _("Tong gia tri HHDV mua vao phuc vu SXKD được khau tru thue GTGT") }} (**):</td>
+		<td class="text-right table-bordered">&nbsp;&nbsp;&nbsp;{{ doc.get_formatted("pl01_2_net_total") }}</td>
 	</tr>
 	<tr><td colspan="2"></td></tr>
 	<tr>
-		<td>{{ _("Tong so thue GTGT cua hang hoa, dich vu ban ra") }} (**):</td>
-		<td class="text-right table-bordered">&nbsp;&nbsp;&nbsp;{{ doc.get_formatted("pl01_1_tax_amount") }}</td>
+		<td>{{ _("Tong so thue GTGT cua hang hoa dich vu mua vao") }} (***):</td>
+		<td class="text-right table-bordered">&nbsp;&nbsp;&nbsp;{{ doc.get_formatted("pl01_2_tax_amount") }}</td>
 	</tr>
 </table>
 <br>
@@ -309,8 +283,11 @@
 <br>
 <table>
 	<tr><td><span style="font-weight: bold; font-style: italic; text-decoration: underline;">{{ _("Ghi chu") }}:</span><br><br>
-	{{ _("Ghi chu pl01-1 1") }}<br>
-	{{ _("Ghi chu pl01-1 2") }}<br>
+	{{ _("Ghi chu pl01-2 1") }}<br>
+	{{ _("Ghi chu pl01-2 2") }}<br>
+	{{ _("Ghi chu pl01-2 3") }}<br>
+	{{ _("Ghi chu pl01-2 4") }}<br>
+	{{ _("Ghi chu pl01-2 5") }}<br>
 </table>
 </div>
 </div>

@@ -1,0 +1,91 @@
+<PL01_1_GTGT>
+	<HHDVKChiuThue>
+		<ChiTietHHDVKChiuThue>
+			{%- for row in doc.pl01_1_1 -%}
+			<HDonBRa id="ID_{{ row.idx }}">
+				<kyHieuMauHDon></kyHieuMauHDon>
+				<kyHieuHDon></kyHieuHDon>
+				<soHDon>{{ row.reference_name or '' }}</soHDon>
+				<ngayPHanh>{{ row.reference_date }}</ngayPHanh>
+				<tenNMUA>{{ row.party_name or '' }}</tenNMUA>
+				<mstNMUA>{{ row.tax_id or '' }}</mstNMUA>
+				<matHang></matHang>
+				<dsoBanChuaThue>{{'{:0.0f}'.format(row.net_total)}}</dsoBanChuaThue>
+				<thueGTGT>{{'{:0.0f}'.format(row.tax_amount)}}</thueGTGT>
+				<ghiChu>{{ row.note or '' }}</ghiChu>
+			</HDonBRa>
+			{%- endfor -%}
+		</ChiTietHHDVKChiuThue>
+		<tongDThuBRaKChiuThue>{{'{:0.0f}'.format(doc.pl01_1_1_net_total)}}</tongDThuBRaKChiuThue>
+	</HHDVKChiuThue>
+	<HHDVThue0>
+		<ChiTietHHDVThue0>
+			{%- for row in doc.pl01_1_2 -%}
+			<HDonBRa id="ID_{{ row.idx }}">
+				<kyHieuMauHDon></kyHieuMauHDon>
+				<kyHieuHDon></kyHieuHDon>
+				<soHDon>{{ row.reference_name or '' }}</soHDon>
+				<ngayPHanh>{{ row.reference_date }}</ngayPHanh>
+				<tenNMUA>{{ row.party_name or '' }}</tenNMUA>
+				<mstNMUA>{{ row.tax_id or '' }}</mstNMUA>
+				<matHang></matHang>
+				<dsoBanChuaThue>{{'{:0.0f}'.format(row.net_total)}}</dsoBanChuaThue>
+				<thueGTGT>{{'{:0.0f}'.format(row.tax_amount)}}</thueGTGT>
+				<ghiChu>{{ row.note or '' }}</ghiChu>
+			</HDonBRa>
+			{%- endfor -%}
+		</ChiTietHHDVThue0>
+		<tongDThuBRaThue0>{{'{:0.0f}'.format(doc.pl01_1_2_net_total)}}</tongDThuBRaThue0>
+		<tongThueBRaThue0>{{'{:0.0f}'.format(doc.pl01_1_2_tax_amount)}}</tongThueBRaThue0>
+	</HHDVThue0>
+	<HHDVThue5>
+		<ChiTietHHDVThue5>
+			{%- for row in doc.pl01_1_3 -%}
+			<HDonBRa id="ID_{{ row.idx }}">
+				<kyHieuMauHDon></kyHieuMauHDon>
+				<kyHieuHDon></kyHieuHDon>
+				<soHDon>{{ row.reference_name or '' }}</soHDon>
+				<ngayPHanh>{{ row.reference_date }}</ngayPHanh>
+				<tenNMUA>{{ row.party_name or '' }}</tenNMUA>
+				<mstNMUA>{{ row.tax_id or '' }}</mstNMUA>
+				<matHang></matHang>
+				<dsoBanChuaThue>{{'{:0.0f}'.format(row.net_total)}}</dsoBanChuaThue>
+				<thueGTGT>{{'{:0.0f}'.format(row.tax_amount)}}</thueGTGT>
+				<ghiChu>{{ row.note or '' }}</ghiChu>
+			</HDonBRa>
+			{%- endfor -%}
+		</ChiTietHHDVThue5>
+		<tongDThuBRaThue5>{{'{:0.0f}'.format(doc.pl01_1_3_net_total)}}</tongDThuBRaThue5>
+		<tongThueBRaThue5>{{'{:0.0f}'.format(doc.pl01_1_3_tax_amount)}}</tongThueBRaThue5>
+	</HHDVThue5>
+	<HHDVThue10>
+		<ChiTietHHDVThue10>
+			{%- for row in doc.pl01_1_4 -%}
+			<HDonBRa id="ID_{{ row.idx }}">
+				<kyHieuMauHDon></kyHieuMauHDon>
+				<kyHieuHDon></kyHieuHDon>
+				<soHDon>{{ row.reference_name or '' }}</soHDon>
+				<ngayPHanh>{{ row.reference_date }}</ngayPHanh>
+				<tenNMUA>{{ row.party_name or '' }}</tenNMUA>
+				<mstNMUA>{{ row.tax_id or '' }}</mstNMUA>
+				<matHang></matHang>
+				<dsoBanChuaThue>{{'{:0.0f}'.format(row.net_total)}}</dsoBanChuaThue>
+				<thueGTGT>{{'{:0.0f}'.format(row.tax_amount)}}</thueGTGT>
+				<ghiChu>{{ row.note or '' }}</ghiChu>
+			</HDonBRa>
+			{%- endfor -%}
+			
+		</ChiTietHHDVThue10>
+		<tongDThuBRaThue10>{{'{:0.0f}'.format(doc.pl01_1_4_net_total)}}</tongDThuBRaThue10>
+		<tongThueBRaThue10>{{'{:0.0f}'.format(doc.pl01_1_4_tax_amount)}}</tongThueBRaThue10>
+	</HHDVThue10>
+	<HHDVBRaKhongTHop>
+		<ChiTietHHDVBRaKhongTHop>
+		</ChiTietHHDVBRaKhongTHop>
+		<tongDThuBRaKoKKhai>0</tongDThuBRaKoKKhai>
+		<tongThueBRaKoKKhai>0</tongThueBRaKoKKhai>
+	</HHDVBRaKhongTHop>
+	<tongDThuBRa>0</tongDThuBRa>
+	<tongDThuBRaChiuThue>{{'{:0.0f}'.format(doc.pl01_1_net_total)}}</tongDThuBRaChiuThue>
+	<tongThueBRa>{{'{:0.0f}'.format(doc.pl01_1_tax_amount)}}</tongThueBRa>
+</PL01_1_GTGT>

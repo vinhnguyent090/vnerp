@@ -1,0 +1,21 @@
+<PL01_5_GTGT>
+	<ThueGTGTDaKKhai ID="ID_1">
+		<soChungTu>1111</soChungTu>
+		<ngayNop>2017-09-01</ngayNop>
+		<noiNopTien>Thu Duc</noiNopTien>
+		<maCQTQLy_CCT>70101</maCQTQLy_CCT>
+		<cqtQLy_CCT>Chi cục Thuế Quận 1</cqtQLy_CCT>
+		<maCQTQLy_CT>70100</maCQTQLy_CT>
+		<cqtQLy_CT>Cục Thuế Thành phố Hồ Chí Minh</cqtQLy_CT>
+		<sotienKKhai>1000000</sotienKKhai>
+	</ThueGTGTDaKKhai><ThueGTGTDaKKhai ID="ID_2">
+		<soChungTu>2222</soChungTu>
+		<ngayNop>2017-09-02</ngayNop>
+		<noiNopTien>Binh Chieu</noiNopTien>
+		<maCQTQLy_CCT>10100</maCQTQLy_CCT>
+		<cqtQLy_CCT>Cục Thuế Thành phố Hà Nội</cqtQLy_CCT>
+		<maCQTQLy_CT>10100</maCQTQLy_CT>
+		<cqtQLy_CT>Cục Thuế Thành phố Hà Nội</cqtQLy_CT>
+		<sotienKKhai>122222</sotienKKhai>
+	</ThueGTGTDaKKhai><tongCong>2234567</tongCong>
+</PL01_5_GTGT>

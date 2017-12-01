@@ -1,0 +1,19 @@
+<PL_01_1_TD_GTGT>
+	<BANGTHUEGTGTCUASXTHUYDIEN>
+		<chiTietThueGTGTCuaSXThuyDien id="ID_1">
+			<tenNhaMay>1111</tenNhaMay>
+			<mstNhaMay>0303007780</mstNhaMay>
+			<thueDauRaNhaMay>10000000</thueDauRaNhaMay>
+			<thueDauVaoNhaMay>2000000</thueDauVaoNhaMay>
+			<thuePNopNhaMay>8000000</thuePNopNhaMay>
+		</chiTietThueGTGTCuaSXThuyDien><chiTietThueGTGTCuaSXThuyDien id="ID_2">
+			<tenNhaMay>22222</tenNhaMay>
+			<mstNhaMay>0303007780</mstNhaMay>
+			<thueDauRaNhaMay>12345663</thueDauRaNhaMay>
+			<thueDauVaoNhaMay>122222</thueDauVaoNhaMay>
+			<thuePNopNhaMay>12223441</thuePNopNhaMay>
+		</chiTietThueGTGTCuaSXThuyDien></BANGTHUEGTGTCUASXTHUYDIEN>
+	<tongThueDauRa>22345663</tongThueDauRa>
+	<tongThueDauVao>2122222</tongThueDauVao>
+	<tongThuePhaiNop>20223441</tongThuePhaiNop>
+</PL_01_1_TD_GTGT>

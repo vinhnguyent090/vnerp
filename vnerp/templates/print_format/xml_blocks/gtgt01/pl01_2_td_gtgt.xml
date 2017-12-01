@@ -1,0 +1,19 @@
+<PL_01_2_TD_GTGT>
+	<BangPBoThueGTGTChoDPhuong>
+		<ChiTietPBoThueGTGTChoDPhuong ID="ID_1">
+			<tenNhaMay>1111</tenNhaMay>
+			<mstNhaMay>0303007780</mstNhaMay>
+			<tyLePhanBoNhaMay>1.00</tyLePhanBoNhaMay>
+			<thuePNopNhaMay>1000000</thuePNopNhaMay>
+			<PhanBoChoCQTDiaPhuong>
+				<tyLePBoThueChoTungCQT id="ID_1">
+					<tenCoSo>2222</tenCoSo>
+					<mstCoSo>0303007780</mstCoSo>
+					<maCQTPBo>10100</maCQTPBo>
+					<tenCQTPBo>Cục Thuế Thành phố Hà Nội</tenCQTPBo>
+					<tyLePBo>5.00</tyLePBo>
+					<thuePNopPBo>1111133</thuePNopPBo>
+				</tyLePBoThueChoTungCQT></PhanBoChoCQTDiaPhuong>
+		</ChiTietPBoThueGTGTChoDPhuong></BangPBoThueGTGTChoDPhuong>
+	<tongCong>122222</tongCong>
+</PL_01_2_TD_GTGT>

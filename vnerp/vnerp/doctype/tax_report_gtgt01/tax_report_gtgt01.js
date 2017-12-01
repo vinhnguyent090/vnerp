@@ -54,6 +54,15 @@ frappe.ui.form.on('Tax Report GTGT01', {
 		refresh_field('pl01_1_2');
 		refresh_field('pl01_1_3');
 		refresh_field('pl01_1_4');
+
+		cur_frm.set_value('pl01_1_1_net_total', 0);
+		cur_frm.set_value('pl01_1_1_tax_amount', 0);
+		cur_frm.set_value('pl01_1_2_net_total', 0);
+		cur_frm.set_value('pl01_1_2_tax_amount', 0);
+		cur_frm.set_value('pl01_1_3_net_total', 0);
+		cur_frm.set_value('pl01_1_3_tax_amount', 0);
+		cur_frm.set_value('pl01_1_4_net_total', 0);
+		cur_frm.set_value('pl01_1_4_tax_amount', 0);
 	},
 	getpl01_1_x: function(frm, account, field){
 		
@@ -76,6 +85,8 @@ frappe.ui.form.on('Tax Report GTGT01', {
 				}
 			},
 			callback: function(r, rt) {
+				var net_total = 0;
+				var tax_amount = 0;
 				if(r.message) {
 					$.each(r.message, function(i, d) {
 						var c = frm.add_child(field);
@@ -89,9 +100,14 @@ frappe.ui.form.on('Tax Report GTGT01', {
 						c.tax_amount = d.tax_amount;
 						c.total_amount = d.total_amount;
 						c.account_head = d.account_head;
+
+						net_total += flt(d.net_total);
+						tax_amount += flt(d.tax_amount);
 					});
 					refresh_field(field)
 				}
+				cur_frm.set_value(field+'_net_total', net_total);
+				cur_frm.set_value(field+'_tax_amount', tax_amount);
 			}
 		});
 

@@ -1,0 +1,40 @@
+<PL01_6_GTGT>
+	<ct06>0</ct06>
+	<ct07>10000000</ct07>
+	<PBoGTGTKhongHTKT>
+		<PBoThueGTGTChoDiaPhuong>
+			<PhanBoGTGT id="ID_1">
+				<ct09>Vinh</ct09>
+				<ct10>0303007780</ct10>
+				<ct11_maCT>70100</ct11_maCT>
+				<ct11_ct>Cục Thuế Thành phố Hồ Chí Minh</ct11_ct>
+				<ct11_maCCT>70111</ct11_maCCT>
+				<ct11_cct>Chi cục Thuế Quận 6</ct11_cct>
+				<DThuSPSXCuaCSSXPhuThuoc>
+					<ct12>1000000</ct12>
+					<ct13>2000000</ct13>
+					<ct14>3000000</ct14>
+				</DThuSPSXCuaCSSXPhuThuoc>
+				<ct15>50000</ct15>
+				<ct17>0</ct17>
+			</PhanBoGTGT><PhanBoGTGT id="ID_2">
+				<ct09>Huy</ct09>
+				<ct10>0303007780</ct10>
+				<ct11_maCT>10300</ct11_maCT>
+				<ct11_ct>Cục Thuế TP Hải Phòng</ct11_ct>
+				<ct11_maCCT>10300</ct11_maCCT>
+				<ct11_cct>Cục Thuế TP Hải Phòng</ct11_cct>
+				<DThuSPSXCuaCSSXPhuThuoc>
+					<ct12>1234567</ct12>
+					<ct13>123333</ct13>
+					<ct14>1357900</ct14>
+				</DThuSPSXCuaCSSXPhuThuoc>
+				<ct15>14813</ct15>
+				<ct17>0</ct17>
+			</PhanBoGTGT></PBoThueGTGTChoDiaPhuong>
+		<ct16>64813</ct16>
+		<ct18>0</ct18>
+		<ct19>0</ct19>
+		<ct20>0</ct20>
+	</PBoGTGTKhongHTKT>
+</PL01_6_GTGT>
