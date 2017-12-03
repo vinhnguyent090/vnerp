@@ -125,9 +125,8 @@ DocType:Tax Report GTGT01,"",""
 
 DocType:Tax Report GTGT01,Quarter,Quý
 DocType:Tax Report GTGT01,Month,Tháng
-DocType:Tax Report GTGT01,Year,Năm
-DocType:Tax Report GTGT01,Company,Công ty
-DocType:Tax Report GTGT01,Date,Ngày
+DocType:Tax Report GTGT01,Na8m,Năm
+DocType:Tax Report GTGT01,Cong ty,Công ty
 DocType:Tax Report GTGT01,Tong,Tổng
 DocType:Tax Report GTGT01,Ngay,Ngày
 DocType:Tax Report GTGT01,Don vi tien: dong Viet Nam,Đơn vị tiền: đồng Việt Nam
@@ -140,4 +139,9 @@ DocType:Tax Report GTGT01,Thue GTGT,Thuế GTGT
 DocType:Tax Report GTGT01,Quy {0} {1}, Quý {0} năm {1}
 DocType:Tax Report GTGT01,Thang {0} {1}, Tháng {0} năm {1}
 
+DocType:Tax Report GTGT01,"Ke khai","Kê khai"
+DocType:Tax Report GTGT01,"Tax Report GTGT01","Tờ khai GTGT khấu trừ (01/GTGT)"
+DocType:Tax Report GTGT01,"He thong","Hệ thống"
+DocType:Tax Report GTGT01,"Tax Report Info","Thông tin người nộp thuế"
+DocType:Tax Report GTGT01,"VN Erp","Kê khai thuế"
 
