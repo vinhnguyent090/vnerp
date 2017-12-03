@@ -144,8 +144,8 @@ def getpl01_1(filters):
 	conditions = get_conditions(filters)
 
 	
-	query = """SELECT 'Sales Invoice' as reference_doctype, si.name as reference_name,
-		si.posting_date as reference_date, 'Customer' as party_type, si.customer_name as party_name,
+	query = """SELECT 'Sales Invoice' as reference_doctype, si.name as reference,
+		si.posting_date as reference_date, 'Customer' as party_type, si.customer as party, si.customer_name as party_name,
 		si.tax_id as tax_id, si.base_net_total as net_total, si_tax.base_tax_amount as tax_amount,
 		si.base_grand_total as total_amount, si_tax.account_head
 		FROM `tabSales Invoice` si, `tabSales Taxes and Charges` si_tax

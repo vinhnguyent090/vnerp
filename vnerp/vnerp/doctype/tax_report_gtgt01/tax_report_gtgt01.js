@@ -91,9 +91,11 @@ frappe.ui.form.on('Tax Report GTGT01', {
 					$.each(r.message, function(i, d) {
 						var c = frm.add_child(field);
 						c.reference_doctype = d.reference_doctype;
-						c.reference_name = d.reference_name;
+						c.reference = d.reference;
+						c.reference_name = d.reference;
 						c.reference_date = d.reference_date;
 						c.party_type = d.party_type;
+						c.party = d.party;
 						c.party_name = d.party_name;
 						c.tax_id = d.tax_id;
 						c.net_total = d.net_total;
